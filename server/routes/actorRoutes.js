@@ -43,6 +43,27 @@ router.put('/actors/:id', async (req, res) => {
     }
 })
 
+router.put('/actors/newCharacter/:id', async (req, res) => {
+    const actorId = req.params.id;
+    const currentCharacter = req.body.currentCharacter;
+    try {
+        const actor =  await Actor.findById(actorId);
+        const oldCharacter = actor.currentCharacter;
+        if (!oldCharacter) {
+            actor.currentCharacter = currentCharacter;
+            await actor.save();
+            return res.status(200).send(actor);
+        } else {
+            actor.currentCharacter = currentCharacter;
+            actor.pastCharacters.push(oldCharacter);
+            await actor.save();
+            return res.status(200).send(actor);
+        }
+    } catch (error) {
+        return res.status(400).send(`An Error Ocurred: ${error}`);
+    }
+})
+
 router.delete('/actors/:id', async (req, res) => {
     const actorId = req.params.id;
     try {

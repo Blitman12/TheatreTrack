@@ -14,6 +14,16 @@ router.get('/projects', async (req, res) => {
     }
 });
 
+router.get('/projects/:projectId', async (req, res) => {
+    const projectId = req.params.projectId
+    try {
+        const projects = await Project.findById(projectId).populate('actors').exec();
+        return res.status(200).send(projects);
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+});
+
 router.post('/projects', async (req, res) => {
     try {
         const project = new Project(req.body);

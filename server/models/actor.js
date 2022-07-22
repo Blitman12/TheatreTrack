@@ -13,6 +13,12 @@ const ActorSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    currentCharacter: {
+        type: String
+    },
+    pastCharacters: [{
+        type: String
+    }]
 });
 
 const Actor = mongoose.model("Actor", ActorSchema);
