@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    color:#129490;
+    mat-icon {
+        transform: scale(2.2);
+        align-self: center;
+        margin-left: 1.5%;
+    }
+    h1 {
+        text-shadow: 0px 1px 1px #4d4d4d;
+        font: 45px 'LeagueGothicRegular';
+    }
+    div {
+        margin-right: 1.5%;
+    }
+}
