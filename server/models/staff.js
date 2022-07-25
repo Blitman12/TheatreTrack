@@ -17,7 +17,7 @@ const StaffSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+},{ versionKey: false });
 
 const Staff = mongoose.model("Staff", StaffSchema);
 

@@ -4,6 +4,8 @@ import { LandingComponent } from "./landing.component";
 
 @NgModule({
     declarations:[LandingComponent],
-    imports: [CommonModule]
+    imports: [
+        CommonModule,
+    ]
 })
 export class LandingModule { }

@@ -9,7 +9,7 @@ const ActSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Scene'
     }]
-});
+},{ versionKey: false });
 
 const Act = mongoose.model("Act", ActSchema);
 

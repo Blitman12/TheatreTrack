@@ -21,7 +21,7 @@ const ProjectSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Act'
     }],
-});
+},{ versionKey: false });
 
 const Project = mongoose.model("Project", ProjectSchema);
 

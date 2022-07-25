@@ -19,7 +19,7 @@ const ActorSchema = new mongoose.Schema({
     pastCharacters: [{
         type: String
     }]
-});
+},{ versionKey: false });
 
 const Actor = mongoose.model("Actor", ActorSchema);
 
