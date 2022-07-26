@@ -1,4 +1,37 @@
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '/src/assets/styles/theme.scss';
+@import '/src/assets/styles/colors.scss';
+
+
+@font-face {
+    font-family: "Ballad";
+    src: url(assets/fonts/General.otf) format("opentype");
+  }
+* {
+    font-family: "Ballad";
+    font-size: small;
+  }
+@font-face {
+    font-family: "Riemann Theatre";
+    src: url(assets/fonts/Header.otf) format("opentype");
+}
+.header {
+    font-family: "Riemann Theatre";
+}
 body {
     margin: 0;
     background-color: #1B1B1B;
 }
+.mat-button {
+    height: 50px;
+    width: 150px;
+    background-color: $dark-accent-color;
+    color: $light-text-color;
+    font-size: 110%;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+.primary {
+    background-color: $dark-blue-accent-color;
+}
+  

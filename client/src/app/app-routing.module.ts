@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from 'src/components/landing/landing.component';
+import { ProjectInfoComponent } from 'src/core/project/components/project-info/project-info.component';
+import { ProjectLandingComponent } from 'src/core/project/components/project-landing/project-landing.component';
 
 const routes: Routes = [
-  {path: '', component: LandingComponent}
+  {path: '', component: ProjectLandingComponent},
+  {path: 'project/:id', component: ProjectInfoComponent}
 ];
 
 @NgModule({

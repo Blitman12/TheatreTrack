@@ -1,0 +1,65 @@
+@import '/src/assets/styles/colors.scss';
+
+/* modal styles start */
+.mat-dialog-container {
+    background-color: $light-accent-color;
+    padding: 0 !important;
+}
+.mat-dialog-title {
+    display: flex !important;
+    align-items: center;
+    margin: 0 0 40px 0 !important;
+    padding-left: 20px;
+    background-color: $dark-accent-color;
+    height: 70px;
+}
+.mat-dialog-content {
+    margin: 0 !important;
+}
+.mat-dialog-actions {
+    padding: 0 !important;
+    margin: 40px 0 20px 0 !important;
+    justify-content: space-evenly;
+}
+.cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 65%);
+}
+.cdk-overlay-pane {
+    width: 50vw !important;
+}
+/* modal styles end */
+/* selected option color */
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled),
+/* focused select arrow color */
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+/* label color */
+.mat-focused .mat-form-field-label {
+    color: $light-blue-accent-color  !important;
+}
+/* underline color */
+.mat-form-field-underline {
+    background-color: $light-text-color  !important;
+}
+/* focused underline color */
+.mat-form-field-ripple {
+    background-color: $light-blue-accent-color  !important;
+}
+/* input caret color */
+.mat-input-element {
+    caret-color: $light-blue-accent-color  !important;
+}
+/* scrollbar style start */
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track {
+    background: $light-accent-color;
+    border-left: 1px solid black;
+}
+::-webkit-scrollbar-thumb {
+    background: $dark-accent-color;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $shadow-color;
+}
+/* scrollbar style end */

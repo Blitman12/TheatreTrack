@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatIconModule } from '@angular/material/icon';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingModule } from 'src/components/landing/landing.module';
-import { ProjectModule } from 'src/components/project/project.module';
-import { EffectsModule } from '@ngrx/effects';
-
+import { SharedModule } from 'src/shared/shared.module';
+import { ProjectModule } from 'src/core/project/project.module';
+import { projectActions } from 'src/core/project/state';
 
 
 @NgModule({
@@ -20,10 +19,9 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     AppRoutingModule,
     HttpClientModule,
-    LandingModule,
-    MatIconModule,
     ProjectModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot(),
@@ -34,7 +32,14 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: environment.production,
     }),
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: (store: Store) => {
+      console.log('Running App Init')
+      store.dispatch(projectActions.requestLoadProjects())
+    },
+    deps: [Store],
+   }],
   bootstrap: [AppComponent]
 })
 

@@ -1,7 +1,7 @@
 import { createReducer, on, Action } from "@ngrx/store";
 
 import {projectActions} from "."
-import { Project } from "src/models";
+import { Project } from "../../../shared/models/index";
 
 
 
@@ -23,7 +23,7 @@ const projectReducer = createReducer(
     on(projectActions.loadProjectSuccess, (state, {projects}) => ({
         ...state,
         projects: projects
-    }))
+    })),
 )
 
 export function reducer(state: ProjectState, action: Action): ProjectState {
