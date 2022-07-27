@@ -1,8 +1,8 @@
 <div mat-dialog-title>
     <div>Add A Play</div>
 </div>
-<mat-dialog-content class="input-container">
-    <form [formGroup]="addPlay">
+<mat-dialog-content>
+    <form [formGroup]="addPlay" class="input-container">
         <mat-form-field>
             <input 
                 formControlName="playName"
@@ -16,7 +16,6 @@
                 placeholder="Image Link (optional)">
         </mat-form-field>
     </form>
-
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button class="button-style" (click)="cancel()">Cancel</button>
