@@ -2,7 +2,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of, switchMap } from "rxjs";
 import { environment } from "src/environments/environment";
-import { Project } from "../../shared/models/index";
+import { Actor, Project } from "../../shared/models/index";
 
 @Injectable({providedIn: 'root'})
 export class ProjectService {
@@ -33,6 +33,20 @@ export class ProjectService {
 
     public deleteProject(id: string): Observable<boolean> {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`));
+    }
+
+    public getActors(): Observable<Actor[]> {
+        return this._http.get<any>(`${this._baseUrl}/actors`).pipe(
+            switchMap(response => {
+                const actors = new Array<Actor>();
+                if (response.length > 0) {
+                    response.forEach((item: Actor) => {                   
+                        actors.push(<Actor>item)
+                    })
+                }
+                return of(actors)
+            })
+        )
     }
 
     private ensureSuccess(res: Observable<any>): Observable<boolean> {

@@ -38,6 +38,7 @@ import { projectActions } from 'src/core/project/state';
     useFactory: (store: Store) => {
       console.log('Running App Init')
       store.dispatch(projectActions.requestLoadProjects())
+      store.dispatch(projectActions.requestLoadActors())
     },
     deps: [Store],
    }],

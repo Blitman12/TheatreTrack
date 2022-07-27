@@ -2,8 +2,8 @@
         <h2>Actors: </h2>
         <input />
     <div class="found-actors">
-        <div class="actor">
-            <p>example actor</p>
+        <div class="actor" *ngFor="let actor of actors">
+            <p>{{actor.firstName}}</p>
             <div class="icon-container">
                 <fa-icon [icon]="['fas', 'user-pen']" class="edit"></fa-icon>
                 <fa-icon [icon]="['fas', 'xmark']" class="delete"></fa-icon>

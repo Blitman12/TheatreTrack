@@ -1,18 +1,20 @@
 import { createReducer, on, Action } from "@ngrx/store";
 
 import {projectActions} from "."
-import { Project } from "../../../shared/models/index";
+import { Actor, Project } from "../../../shared/models/index";
 
 
 
 export const featureName = 'Projects';
 
 export interface ProjectState {
-    projects: Project[]
+    projects: Project[],
+    actors: Actor[]
 };
 
 export const initialState: ProjectState = {
-    projects: []
+    projects: [],
+    actors: []
 };
 
 const projectReducer = createReducer(
@@ -20,9 +22,16 @@ const projectReducer = createReducer(
     on(projectActions.requestLoadProjects, () => ({
         ...initialState
     })),
+    on(projectActions.requestLoadActors, () => ({
+        ...initialState
+    })),
     on(projectActions.loadProjectSuccess, (state, {projects}) => ({
         ...state,
         projects: projects
+    })),
+    on(projectActions.loadActorsSuccess, (state, {actors}) => ({
+        ...state,
+        actors: actors
     })),
 )
 

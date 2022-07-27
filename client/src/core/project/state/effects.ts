@@ -17,6 +17,14 @@ export class ProjectEffects {
         ))
     ));
 
+    requestActors$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestLoadActors),
+        switchMap(() => this._projectService.getActors().pipe(
+            map((actors) => projectActions.loadActorsSuccess({actors})),
+            catchError((error) => of(projectActions.loadActorsFailure()))
+        ))
+    ));
+
     requestAddProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestAddProject),
         switchMap((action) => this._projectService.addProject(action.name, action.heroImage).pipe(

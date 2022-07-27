@@ -11,25 +11,30 @@
 
     .found-actors{
         color: rgb(235, 225, 213);
-        margin-left: 5px;
+        margin-left: 10px;
         .actor {
             display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid green;
             p {
                 font-size: 10px;
             }
             .icon-container {
+                align-self: center;
+                min-width: 45px;
+                display: flex;
+                justify-content: space-around;
                 .edit {
-                    align-self: center;
-                    font-size: 10px;
                     color:rgb(30, 95, 104);
+                    margin-right: 15px;
+                    transform: scale(1.5);
                 }
                 .delete {
-                    align-self: center;
-                    font-size: 15px;
-                    margin-top: 3px;
                     color: red;
+                    margin-right: 10px;
+                    transform: scale(2);
                 }
-            } 
+            }
         }
     }
 }
