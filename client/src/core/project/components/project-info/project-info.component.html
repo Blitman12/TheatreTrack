@@ -1,2 +1,9 @@
-<h2>{{selectedProject?.name}}</h2>
-<button mat-button class="primary" (click)="deleteProject()"><fa-icon [icon]="['fas', 'xmark']"></fa-icon></button>
+<div class="info-title-container">
+    <h2>{{selectedProject?.name}}</h2>
+    <fa-icon [icon]="['fas', 'xmark']" size="2x" (click)="deleteProject()"></fa-icon>
+</div>
+
+<div *ngIf="selectedProject?.acts?.length === 0" class="get-started">
+    <h2>No Acts yet! Lets get started!</h2>
+    <button mat-button class="button-style primary" (click)="getStarted()">Get Started</button>
+</div>

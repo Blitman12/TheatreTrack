@@ -1,0 +1,35 @@
+.actor-container {
+    position: fixed;
+    min-width: 300px;
+    background-color: #100c08;
+    height: 100vh;
+    h2 {
+        color: aliceblue;
+        text-align: left;
+        margin-left: 10px;
+    }
+
+    .found-actors{
+        color: rgb(235, 225, 213);
+        margin-left: 5px;
+        .actor {
+            display: flex;
+            p {
+                font-size: 10px;
+            }
+            .icon-container {
+                .edit {
+                    align-self: center;
+                    font-size: 10px;
+                    color:rgb(30, 95, 104);
+                }
+                .delete {
+                    align-self: center;
+                    font-size: 15px;
+                    margin-top: 3px;
+                    color: red;
+                }
+            } 
+        }
+    }
+}

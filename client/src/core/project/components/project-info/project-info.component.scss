@@ -1,0 +1,25 @@
+.info-title-container {
+    display: flex;
+    justify-content: center;
+    h2 {
+        text-align: center;
+        color: aliceblue;
+    }
+    fa-icon {
+        color: red;
+        align-self: center;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+}
+
+.get-started {
+    margin-top: 15%;
+    text-align: center;
+    h2 {
+        color: white;
+    }
+    button {
+        width: 175px;
+    }
+}

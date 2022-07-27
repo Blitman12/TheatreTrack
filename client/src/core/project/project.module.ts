@@ -10,6 +10,8 @@ import { SharedModule } from 'src/shared/shared.module';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { ProjectLandingComponent } from './components/project-landing/project-landing.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ProjectSetupComponent } from './components/project-setup/project-setup.component';
+import { ProjectActorComponent } from './components/project-actor/project-actor.component';
 
 
 
@@ -19,7 +21,9 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
     ProjectAddComponent,
     ProjectLandingComponent,
     ProjectInfoComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    ProjectSetupComponent,
+    ProjectActorComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +31,7 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
     EffectsModule.forFeature([ProjectEffects]),
     SharedModule
   ],
-  providers: [ProjectService]
+  providers: [ProjectService],
+  exports: [ProjectActorComponent]
 })
 export class ProjectModule { }

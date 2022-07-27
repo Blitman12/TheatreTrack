@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Project } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
+import { ProjectSetupComponent } from '../project-setup/project-setup.component';
 
 @Component({
   selector: 'app-project-info',
@@ -18,6 +20,7 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
   public constructor(
     private _projectSelector: ProjectSelectors,
     private _router: Router,
+    private _dialog: MatDialog,
     private _store: Store
   ) {
     super();
@@ -28,9 +31,18 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     this.setupSubscriptions();
   }
 
+
   public deleteProject(): void {
+    const confirmDelete = window.confirm('Are you sure you want to delete this play? The Action cannot be undone')
+    if (!confirmDelete) {
+      return
+    }
     this._store.dispatch(projectActions.requestDeleteProject({id: this._id}))
     this._router.navigateByUrl('/')
+  }
+
+  public getStarted(): void {
+    this._dialog.open(ProjectSetupComponent)
   }
 
   private setupSubscriptions(): void {

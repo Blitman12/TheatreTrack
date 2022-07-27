@@ -13,9 +13,10 @@ import { ProjectModule } from 'src/core/project/project.module';
 import { projectActions } from 'src/core/project/state';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
