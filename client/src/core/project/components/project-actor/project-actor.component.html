@@ -1,12 +1,16 @@
 <div class="actor-container">
-        <h2>Actors: </h2>
-        <input />
+    <div class="actor-header">
+        <h2>Actors</h2>
+        <div></div>
+        <fa-icon [icon]="['fas', 'plus']" class="add"></fa-icon>
+    </div>
+    <input />
     <div class="found-actors">
         <div class="actor" *ngFor="let actor of actors">
-            <p>{{actor.firstName}}</p>
+            <p title="{{actor.firstName}}, {{actor.lastName}}">{{actor.firstName}}, {{actor.lastName}}</p>
             <div class="icon-container">
-                <fa-icon [icon]="['fas', 'user-pen']" class="edit"></fa-icon>
-                <fa-icon [icon]="['fas', 'xmark']" class="delete"></fa-icon>
+                <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit(actor)"></fa-icon>
+                <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="delete(actor)"></fa-icon>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ export class ProjectEffects {
     ));
 
     requestActors$ = createEffect(() => this._actions$.pipe(
-        ofType(projectActions.requestLoadActors),
+        ofType(projectActions.requestLoadActors, projectActions.deleteActorSuccess),
         switchMap(() => this._projectService.getActors().pipe(
             map((actors) => projectActions.loadActorsSuccess({actors})),
             catchError((error) => of(projectActions.loadActorsFailure()))
@@ -38,6 +38,14 @@ export class ProjectEffects {
         switchMap((action) => this._projectService.deleteProject(action.id).pipe(
             map(() => projectActions.deleteProjectSuccess()),
             catchError((error) => of(projectActions.deleteProjectFailure()))
+        ))
+    ));
+
+    requestDeleteActor$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestDeleteActor),
+        switchMap((action) => this._projectService.deleteActor(action.id).pipe(
+            map(() => projectActions.deleteActorSuccess()),
+            catchError((error) => of(projectActions.deleteActorFailure()))
         ))
     ));
 

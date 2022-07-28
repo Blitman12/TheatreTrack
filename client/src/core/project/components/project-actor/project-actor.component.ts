@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Actor } from 'src/shared/models';
+import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
 
 @Component({
@@ -15,13 +16,25 @@ export class ProjectActorComponent extends BaseComponent implements OnInit {
   public constructor(
     private _store: Store,
     private _projectSelectors: ProjectSelectors
-  ) { 
+  ) {
     super();
     this.setupSubscriptions();
   }
 
   public ngOnInit(): void {
 
+  }
+
+  public edit(actor: Actor): void {
+    console.log(actor)
+  }
+
+  public delete(actor: Actor): void {
+    const confirmDelete = window.confirm('Delete Actor? There is not going back');
+    if (confirmDelete) {
+      this._store.dispatch(projectActions.requestDeleteActor({ id: actor._id }))
+    }
+    return;
   }
 
   private setupSubscriptions(): void {

@@ -67,10 +67,10 @@ router.put('/actors/newCharacter/:id', async (req, res) => {
 router.delete('/actors/:id', async (req, res) => {
     const actorId = req.params.id;
     try {
-        await Actor.findByIdAndDelete(actorId);
-       res.status(200).send(`The actor with ID: ${actorId} was deleted`)
+        const actor = await Actor.findByIdAndDelete(actorId);
+        res.status(200).send(actor)
     } catch (error) {
-       res.status(404).send('An error ocurred');
+        res.status(404).send('An error ocurred');
     }
 })
 

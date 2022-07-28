@@ -17,3 +17,7 @@ export const deleteProjectSuccess = createAction('[Landing] Delete Project Succe
 export const requestLoadActors = createAction('[Landing] Request Load Actors');
 export const loadActorsFailure = createAction('[Landing] Get Actors Failed');
 export const loadActorsSuccess = createAction('[Landing] Got Actors Success', props<{actors: Actor[]}>());
+
+export const requestDeleteActor = createAction('[Landing] Request Delete Actor', props<{id: string}>());
+export const deleteActorFailure = createAction('[Landing] Delete Actor Failure');
+export const deleteActorSuccess = createAction('[Landing] Delete Actor Success');
