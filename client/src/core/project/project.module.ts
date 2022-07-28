@@ -12,6 +12,7 @@ import { ProjectLandingComponent } from './components/project-landing/project-la
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectSetupComponent } from './components/project-setup/project-setup.component';
 import { ProjectActorComponent } from './components/project-actor/project-actor.component';
+import { ProjectAddActorComponent } from './components/project-add-actor/project-add-actor.component';
 
 
 
@@ -23,7 +24,8 @@ import { ProjectActorComponent } from './components/project-actor/project-actor.
     ProjectInfoComponent,
     ProjectCardComponent,
     ProjectSetupComponent,
-    ProjectActorComponent
+    ProjectActorComponent,
+    ProjectAddActorComponent
   ],
   imports: [
     CommonModule,
