@@ -4,10 +4,12 @@
         <div></div>
         <fa-icon [icon]="['fas', 'plus']" class="add" (click)="add()"></fa-icon>
     </div>
-    <input />
-    <div class="found-actors">
-        <div class="actor" *ngFor="let actor of actors">
-            <p title="{{actor.firstName}} {{actor.lastName}}">{{actor.firstName}}, {{actor.lastName}}</p>
+    <form [formGroup]="searchForm" autocomplete="off" class="search">
+        <input matInput placeholder="Search an actor" formControlName="searchActors" />
+    </form>
+    <div class="found-actors" *ngIf="displayedActors.length > 0; else noactorsTemp">
+        <div class="actor" *ngFor="let actor of displayedActors">
+            <p title="{{actor.firstName}} {{actor.lastName}}">{{actor.firstName}} {{actor.lastName}}</p>
             <div class="icon-container">
                 <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit(actor)"></fa-icon>
                 <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="delete(actor)"></fa-icon>
@@ -15,3 +17,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #noactorsTemp>
+    <p class="no-actors pulsate">No actors found...</p>
+</ng-template>

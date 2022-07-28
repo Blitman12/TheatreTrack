@@ -4,6 +4,11 @@
     max-width: 300px;
     background-color: #100c08;
     height: 100vh;
+    .search {
+        margin-left: 10px;
+        width: 94%;
+        color: white;
+    }
     .actor-header {
         display: flex;
         justify-content: space-between;
@@ -52,5 +57,27 @@
                 }
             }
         }
+    }
+}
+
+.no-actors {
+    text-align: center;
+    color: white;
+}
+
+.pulsate {
+    animation: pulsate 3s ease-out;
+    animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+@keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.5;
     }
 }
