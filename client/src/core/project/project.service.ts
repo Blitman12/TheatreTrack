@@ -4,7 +4,7 @@ import { Observable, of, switchMap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Actor, Project } from "../../shared/models/index";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ProjectService {
     private _baseUrl = environment.apiUrl;
 
@@ -15,7 +15,7 @@ export class ProjectService {
             switchMap(response => {
                 const projects = new Array<Project>();
                 if (response.length > 0) {
-                    response.forEach((item: Project) => {                   
+                    response.forEach((item: Project) => {
                         projects.push(<Project>item)
                     })
                 }
@@ -40,13 +40,22 @@ export class ProjectService {
             switchMap(response => {
                 const actors = new Array<Actor>();
                 if (response.length > 0) {
-                    response.forEach((item: Actor) => {                   
+                    response.forEach((item: Actor) => {
                         actors.push(<Actor>item)
                     })
                 }
                 return of(actors)
             })
         )
+    }
+
+    public addActor(firstName: string, lastName: string, age: number, currentCharacter?: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/actors`, {
+            firstName,
+            lastName,
+            age,
+            currentCharacter
+        }));
     }
 
     public deleteActor(id: string): Observable<boolean> {
@@ -56,7 +65,7 @@ export class ProjectService {
     private ensureSuccess(res: Observable<any>): Observable<boolean> {
         return res.pipe(
             switchMap(response => {
-                if(response?.status === 200) {
+                if (response?.status === 200) {
                     return of(true)
                 }
                 return of(false);
