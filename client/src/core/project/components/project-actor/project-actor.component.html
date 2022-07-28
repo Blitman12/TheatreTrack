@@ -9,7 +9,7 @@
     </form>
     <div class="found-actors" *ngIf="displayedActors.length > 0; else noactorsTemp">
         <div class="actor" *ngFor="let actor of displayedActors">
-            <p title="{{actor.firstName}} {{actor.lastName}}">{{actor.firstName}} {{actor.lastName}}</p>
+            <p title="Name: {{actor.firstName}} {{actor.lastName}}&#010;Age: {{actor.age}}&#010;Current Role: {{actor.currentCharacter}}">{{actor.firstName}} {{actor.lastName}}</p>
             <div class="icon-container">
                 <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit(actor)"></fa-icon>
                 <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="delete(actor)"></fa-icon>

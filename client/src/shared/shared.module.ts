@@ -57,4 +57,4 @@ export class SharedModule {
   public constructor(library: FaIconLibrary) {
     library.addIconPacks(fas, far, fab);
   }
- }
+}
