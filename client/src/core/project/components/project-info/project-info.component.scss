@@ -2,14 +2,23 @@
     display: flex;
     justify-content: center;
     h2 {
+        font-size: x-large;
         text-align: center;
         color: aliceblue;
     }
-    fa-icon {
-        color: red;
+    .edit {
+        color:rgb(30, 95, 104);
+        margin-right: 15px;
+        transform: scale(1.1);
         align-self: center;
         margin-left: 10px;
-        margin-top: 5px;
+    }
+    .delete {
+        color: red;
+        margin-right: 10px;
+        margin-top: 2px;
+        transform: scale(1.4);
+        align-self: center;
     }
 }
 

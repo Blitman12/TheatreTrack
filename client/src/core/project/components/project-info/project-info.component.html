@@ -1,6 +1,7 @@
 <div class="info-title-container">
     <h2>{{selectedProject?.name}}</h2>
-    <fa-icon [icon]="['fas', 'xmark']" size="2x" (click)="deleteProject()"></fa-icon>
+    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit()"></fa-icon>
+    <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteProject()"></fa-icon>
 </div>
 
 <div *ngIf="selectedProject?.acts?.length === 0" class="get-started">

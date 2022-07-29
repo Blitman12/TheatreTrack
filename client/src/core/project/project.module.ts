@@ -14,6 +14,7 @@ import { ProjectSetupComponent } from './components/project-setup/project-setup.
 import { ProjectActorComponent } from './components/project-actor/project-actor.component';
 import { ProjectAddActorComponent } from './components/project-add-actor/project-add-actor.component';
 import { ProjectEditActorComponent } from './components/project-edit-actor/project-edit-actor.component';
+import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 
 
 
@@ -27,7 +28,8 @@ import { ProjectEditActorComponent } from './components/project-edit-actor/proje
     ProjectSetupComponent,
     ProjectActorComponent,
     ProjectAddActorComponent,
-    ProjectEditActorComponent
+    ProjectEditActorComponent,
+    ProjectEditComponent
   ],
   imports: [
     CommonModule,

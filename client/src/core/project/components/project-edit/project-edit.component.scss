@@ -1,0 +1,22 @@
+.mat-dialog-title{
+    justify-content: center;
+}
+
+
+.information-container {
+    display: flex;
+    justify-content: space-around;
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        mat-form-field {
+            width: 500px;
+        }
+    }
+    .hero-image {
+        width: 110px;
+        height: 160px;
+    }
+}
+

@@ -6,6 +6,7 @@ import { BaseComponent } from 'src/shared/bases/base.component';
 import { Project } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
+import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
 
 @Component({
@@ -37,12 +38,16 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     if (!confirmDelete) {
       return
     }
-    this._store.dispatch(projectActions.requestDeleteProject({id: this._id}))
+    this._store.dispatch(projectActions.requestDeleteProject({ id: this._id }))
     this._router.navigateByUrl('/')
   }
 
   public getStarted(): void {
-    this._dialog.open(ProjectSetupComponent)
+    this._dialog.open(ProjectSetupComponent, { data: { project: this.selectedProject } })
+  }
+
+  public edit(): void {
+    this._dialog.open(ProjectEditComponent, { data: { project: this.selectedProject } })
   }
 
   private setupSubscriptions(): void {

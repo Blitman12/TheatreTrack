@@ -31,6 +31,13 @@ export class ProjectService {
         }));
     }
 
+    public editProject(id: string, name?: string, heroImage?: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`, {
+            name,
+            heroImage
+        }));
+    }
+
     public deleteProject(id: string): Observable<boolean> {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`));
     }
