@@ -8,6 +8,7 @@ import { Actor } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
 import { ProjectAddActorComponent } from '../project-add-actor/project-add-actor.component';
+import { ProjectEditActorComponent } from '../project-edit-actor/project-edit-actor.component';
 
 @Component({
   selector: 'app-project-actor',
@@ -47,7 +48,7 @@ export class ProjectActorComponent extends BaseComponent implements OnInit {
   }
 
   public edit(actor: Actor): void {
-    console.log(actor)
+    this._dialog.open(ProjectEditActorComponent, {data: {actor}})
   }
 
   public delete(actor: Actor): void {

@@ -58,6 +58,15 @@ export class ProjectService {
         }));
     }
 
+    public editActor(id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`, {
+            firstName,
+            lastName,
+            age,
+            currentCharacter
+        }));
+    }
+
     public deleteActor(id: string): Observable<boolean> {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`));
     }

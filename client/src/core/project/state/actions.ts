@@ -25,3 +25,8 @@ export const deleteActorSuccess = createAction('[Landing] Delete Actor Success')
 export const requestAddActor = createAction('[Landing] Request Add Actor', props<{ firstName: string, lastName: string, age: number, currentCharacter?: string }>());
 export const addActorFailure = createAction('[Landing] Add Actor Failure');
 export const addActorSuccess = createAction('[Landing] Add Actor Success');
+
+export const requestEditActor = createAction('[Landing] Request Edit Actor', props<{ id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string }>());
+export const editActorFailure = createAction('[Landing] Edit Actor Failure');
+export const editActorSuccess = createAction('[Landing] Edit Actor Success');
+

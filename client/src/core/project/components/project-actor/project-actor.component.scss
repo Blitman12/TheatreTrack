@@ -32,6 +32,7 @@
         .actor {
             display: flex;
             justify-content: space-between;
+            margin-top: 10px;
             border-bottom: 1px solid green;
             p {
                 font-size: 10px;
@@ -53,6 +54,7 @@
                 .delete {
                     color: red;
                     margin-right: 10px;
+                    margin-top: 2px;
                     transform: scale(2);
                 }
             }
