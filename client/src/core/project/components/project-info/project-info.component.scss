@@ -32,3 +32,69 @@
         width: 175px;
     }
 }
+
+.project-container{
+    background-color: black;
+    margin-right: 25px;
+    border-radius: 2%;
+    .project-info-container {
+        display: flex;
+        margin-top: 25px;
+        padding: 10px;
+        .act-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #100c08;
+            color: white;
+            border-radius: 2%;
+            padding: 3px;
+            width: 10%;
+            div {
+                h2 {
+                    text-align: center;
+                }
+            }
+            .icon-container {
+                display: flex;
+                justify-content: space-between;
+                margin-top: auto;
+            }
+        }
+        .scenes-container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            min-height: 200px;
+            max-height: 200px;
+            .scene-container {
+                margin-left: 5px;
+                background-color: #BDC696;
+                margin: 2px 1px 1px 5px;
+                width: 200px;
+                height: 30px;
+                .scene {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 5px;
+                    h3 {
+                        margin-left: 5px;
+                        margin: 0;
+                    }
+                    .icon-container {
+                        margin-right: 13px;
+                        align-self: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.edit {
+    color: #295f68;
+    margin-right: 5px;
+}
+
+.delete {
+    color: red;
+}

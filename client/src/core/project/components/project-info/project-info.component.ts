@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BaseComponent } from 'src/shared/bases/base.component';
-import { Project } from 'src/shared/models';
+import { Act, Project } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
@@ -48,6 +48,10 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
 
   public edit(): void {
     this._dialog.open(ProjectEditComponent, { data: { project: this.selectedProject } })
+  }
+
+  public addScene(id: string): void {
+    
   }
 
   private setupSubscriptions(): void {

@@ -78,6 +78,7 @@ export class ProjectService {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`));
     }
 
+
     private ensureSuccess(res: Observable<any>): Observable<boolean> {
         return res.pipe(
             switchMap(response => {
