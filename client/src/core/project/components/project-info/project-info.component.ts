@@ -6,6 +6,7 @@ import { BaseComponent } from 'src/shared/bases/base.component';
 import { Act, Project } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
+import { ProjectAddNewActComponent } from '../project-add-act/project-add-act-new.component';
 import { ProjectAddSceneComponent } from '../project-add-scene/project-add-scene.component';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
@@ -49,6 +50,10 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
 
   public edit(): void {
     this._dialog.open(ProjectEditComponent, { data: { project: this.selectedProject } })
+  }
+  
+  public addAct(): void {
+    this._dialog.open(ProjectAddNewActComponent, { data: { project: this.selectedProject } })
   }
 
   public deleteAct(act: Act): void {

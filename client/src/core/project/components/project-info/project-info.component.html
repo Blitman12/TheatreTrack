@@ -9,6 +9,8 @@
     <button mat-button class="button-style primary" (click)="getStarted()">Get Started</button>
 </div>
 
+<button mat-button class="button-style primary" *ngIf="selectedProject?.acts?.length" (click)="addAct()">Add Act</button>
+
 <div class="project-container">
     <div class="project-info-container" *ngFor="let act of selectedProject?.acts">
         <div class="act-container">

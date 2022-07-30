@@ -83,6 +83,7 @@ export class ProjectService {
         return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/scene/act/${id}`, { name }));
     }
 
+
     public deleteAct(id: string): Observable<boolean> {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/act/${id}`));
     }
