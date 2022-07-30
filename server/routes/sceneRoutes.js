@@ -87,8 +87,8 @@ router.put('/scene/:sceneId/removeactor/:actorId', async (req, res) => {
 router.delete('/scene/:id', async (req, res) => {
     try {
         const sceneId = req.params.id;
-        await Scene.findByIdAndDelete(sceneId);
-        res.status(200).send(`The scene with ID: ${sceneId} was deleted`)
+        const scene = await Scene.findByIdAndDelete(sceneId);
+        res.status(200).send(scene)
     } catch (error) {
         res.status(404).send('An error ocurred');
     }

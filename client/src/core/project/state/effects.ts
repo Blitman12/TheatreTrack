@@ -7,12 +7,12 @@ import { ProjectService } from "../project.service";
 
 
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ProjectEffects {
     requestProjects$ = createEffect(() => this._actions$.pipe(
-        ofType(projectActions.requestLoadProjects, projectActions.addProjectSuccess, projectActions.deleteProjectSuccess, projectActions.editProjectSuccess),
+        ofType(projectActions.requestLoadProjects, projectActions.addProjectSuccess, projectActions.deleteProjectSuccess, projectActions.editProjectSuccess, projectActions.addSceneSuccess, projectActions.deleteActSuccess),
         switchMap(() => this._projectService.getProjects().pipe(
-            map((projects) => projectActions.loadProjectSuccess({projects})),
+            map((projects) => projectActions.loadProjectSuccess({ projects })),
             catchError((error) => of(projectActions.loadProjectFailure()))
         ))
     ));
@@ -20,7 +20,7 @@ export class ProjectEffects {
     requestActors$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestLoadActors, projectActions.addActorSuccess, projectActions.deleteActorSuccess, projectActions.editActorSuccess),
         switchMap(() => this._projectService.getActors().pipe(
-            map((actors) => projectActions.loadActorsSuccess({actors})),
+            map((actors) => projectActions.loadActorsSuccess({ actors })),
             catchError((error) => of(projectActions.loadActorsFailure()))
         ))
     ));
@@ -35,9 +35,17 @@ export class ProjectEffects {
 
     requestAddActor$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestAddActor),
-        switchMap((action) => this._projectService.addActor(action.firstName, action.lastName, action.age,  action?.currentCharacter).pipe(
+        switchMap((action) => this._projectService.addActor(action.firstName, action.lastName, action.age, action?.currentCharacter).pipe(
             map(() => projectActions.addActorSuccess()),
             catchError((error) => of(projectActions.addActorFailure()))
+        ))
+    ));
+
+    requestAddScene$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestAddScene),
+        switchMap((action) => this._projectService.addScene(action.id, action.name).pipe(
+            map(() => projectActions.addSceneSuccess()),
+            catchError((error) => of(projectActions.addSceneFailure()))
         ))
     ));
 
@@ -51,7 +59,7 @@ export class ProjectEffects {
 
     requestEditActor$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestEditActor),
-        switchMap((action) => this._projectService.editActor(action.id, action?.firstName, action?.lastName, action?.age,  action?.currentCharacter).pipe(
+        switchMap((action) => this._projectService.editActor(action.id, action?.firstName, action?.lastName, action?.age, action?.currentCharacter).pipe(
             map(() => projectActions.editActorSuccess()),
             catchError((error) => of(projectActions.editActorFailure()))
         ))
@@ -70,6 +78,14 @@ export class ProjectEffects {
         switchMap((action) => this._projectService.deleteActor(action.id).pipe(
             map(() => projectActions.deleteActorSuccess()),
             catchError((error) => of(projectActions.deleteActorFailure()))
+        ))
+    ));
+
+    requestDeleteScene$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestDeleteAct),
+        switchMap((action) => this._projectService.deleteAct(action.id).pipe(
+            map(() => projectActions.deleteActSuccess()),
+            catchError((error) => of(projectActions.deleteActFailure()))
         ))
     ));
 

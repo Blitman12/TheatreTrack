@@ -79,6 +79,15 @@ export class ProjectService {
     }
 
 
+    public addScene(id: string, name: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/scene/act/${id}`, { name }));
+    }
+
+    public deleteAct(id: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/act/${id}`));
+    }
+
+
     private ensureSuccess(res: Observable<any>): Observable<boolean> {
         return res.pipe(
             switchMap(response => {

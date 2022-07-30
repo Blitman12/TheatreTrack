@@ -6,6 +6,7 @@ import { BaseComponent } from 'src/shared/bases/base.component';
 import { Act, Project } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
+import { ProjectAddSceneComponent } from '../project-add-scene/project-add-scene.component';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
 
@@ -50,8 +51,13 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     this._dialog.open(ProjectEditComponent, { data: { project: this.selectedProject } })
   }
 
+  public deleteAct(act: Act): void {
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${act.name}? There is no going back`);
+    if (confirmDelete) this._store.dispatch(projectActions.requestDeleteAct({ id: act._id }));
+  }
+
   public addScene(id: string): void {
-    
+    this._dialog.open(ProjectAddSceneComponent, { data: { id: id } })
   }
 
   private setupSubscriptions(): void {

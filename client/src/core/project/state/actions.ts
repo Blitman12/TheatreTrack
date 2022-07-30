@@ -34,6 +34,10 @@ export const requestEditActor = createAction('[Landing] Request Edit Actor', pro
 export const editActorFailure = createAction('[Landing] Edit Actor Failure');
 export const editActorSuccess = createAction('[Landing] Edit Actor Success');
 
-export const requestAddScene = createAction('[Landing] Request Add Scene',);
+export const requestAddScene = createAction('[Landing] Request Add Scene', props<{ id: string, name: string }>());
 export const addSceneFailure = createAction('[Landing] Add Scene Failure');
 export const addSceneSuccess = createAction('[Landing] Add Scene Success');
+
+export const requestDeleteAct = createAction('[Landing] Request Delete Act', props<{ id: string }>());
+export const deleteActFailure = createAction('[Landing] Delete Act Failure');
+export const deleteActSuccess = createAction('[Landing] Delete Act Success');

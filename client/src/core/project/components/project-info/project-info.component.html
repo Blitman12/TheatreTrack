@@ -18,7 +18,7 @@
                 <fa-icon [icon]="['fas', 'plus']" (click)="addScene(act._id)"></fa-icon>
                 <div>
                     <fa-icon [icon]="['fas', 'user-pen']" class="edit"></fa-icon>
-                    <fa-icon [icon]="['fas', 'xmark']" class="delete"></fa-icon>
+                    <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteAct(act)"></fa-icon>
                 </div>
             </div>
         </div>

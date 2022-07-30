@@ -73,8 +73,8 @@ router.put('/scene/:sceneId/removeactor/:actorId', async (req, res) => {
 router.delete('/act/:id', async (req, res) => {
     try {
         const actId = req.params.id;
-        await Act.findByIdAndDelete(actId);
-        res.status(200).send(`The act with ID: ${actId} was deleted`)
+        const act = await Act.findByIdAndDelete(actId);
+        res.status(200).send(act)
     } catch (error) {
         res.status(404).send('An error ocurred');
     }

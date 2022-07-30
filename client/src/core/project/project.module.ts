@@ -15,6 +15,7 @@ import { ProjectActorComponent } from './components/project-actor/project-actor.
 import { ProjectAddActorComponent } from './components/project-add-actor/project-add-actor.component';
 import { ProjectEditActorComponent } from './components/project-edit-actor/project-edit-actor.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
+import { ProjectAddSceneComponent } from './components/project-add-scene/project-add-scene.component';
 
 
 
@@ -29,7 +30,8 @@ import { ProjectEditComponent } from './components/project-edit/project-edit.com
     ProjectActorComponent,
     ProjectAddActorComponent,
     ProjectEditActorComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    ProjectAddSceneComponent
   ],
   imports: [
     CommonModule,
