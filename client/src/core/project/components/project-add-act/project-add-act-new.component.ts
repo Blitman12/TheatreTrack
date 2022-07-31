@@ -29,7 +29,7 @@ export class ProjectAddNewActComponent implements OnInit {
 
     ngOnInit(): void {
         this.addAct = this._formBuilder.group({
-            act: [this.actName]
+            actName: [this.actName]
         });
     }
 
@@ -38,9 +38,10 @@ export class ProjectAddNewActComponent implements OnInit {
     }
 
     public save(): void {
-        // this._store.dispatch(projectActions.requestAddActor({
-        //     name: this.actNameValue?.value,
-        // }))
+        this._store.dispatch(projectActions.requestAddAct({
+            id: this.data.project._id,
+            name: this.actNameValue?.value,
+        }))
         this._dialog.closeAll()
     }
 

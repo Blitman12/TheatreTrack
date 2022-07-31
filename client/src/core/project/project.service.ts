@@ -88,6 +88,10 @@ export class ProjectService {
         return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/act/${id}`));
     }
 
+    public addAct(id: string, name: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/act/project/${id}`, { name }));
+    }
+
 
     private ensureSuccess(res: Observable<any>): Observable<boolean> {
         return res.pipe(

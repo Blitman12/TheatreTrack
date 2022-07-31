@@ -10,7 +10,15 @@ import { ProjectService } from "../project.service";
 @Injectable({ providedIn: 'root' })
 export class ProjectEffects {
     requestProjects$ = createEffect(() => this._actions$.pipe(
-        ofType(projectActions.requestLoadProjects, projectActions.addProjectSuccess, projectActions.deleteProjectSuccess, projectActions.editProjectSuccess, projectActions.addSceneSuccess, projectActions.deleteActSuccess),
+        ofType(
+            projectActions.requestLoadProjects,
+            projectActions.addProjectSuccess,
+            projectActions.deleteProjectSuccess,
+            projectActions.editProjectSuccess,
+            projectActions.addSceneSuccess,
+            projectActions.deleteActSuccess,
+            projectActions.addActSuccess
+        ),
         switchMap(() => this._projectService.getProjects().pipe(
             map((projects) => projectActions.loadProjectSuccess({ projects })),
             catchError((error) => of(projectActions.loadProjectFailure()))
@@ -46,6 +54,14 @@ export class ProjectEffects {
         switchMap((action) => this._projectService.addScene(action.id, action.name).pipe(
             map(() => projectActions.addSceneSuccess()),
             catchError((error) => of(projectActions.addSceneFailure()))
+        ))
+    ));
+
+    requestAddAct$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestAddAct),
+        switchMap((action) => this._projectService.addAct(action.id, action.name).pipe(
+            map(() => projectActions.addActSuccess()),
+            catchError((error) => of(projectActions.addActFailure()))
         ))
     ));
 
