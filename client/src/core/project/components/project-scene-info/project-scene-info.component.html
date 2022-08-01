@@ -1,1 +1,20 @@
-<p>project-scene-info works!</p>
+<div>
+ <h2>{{selectedScene?.name}}</h2>
+ <button mat-button class="primary" (click)="addActor(selectedScene!._id)">Add New Actor</button>
+<div
+cdkDropList
+id="sceneActorList"
+cdkDropListConnectedTo="actorList"
+cdkDropListSortingDisabled="true"
+(cdkDropListDropped)="drop($event)">
+
+    <div  cdkDrag class="drag">
+        drag an actor here to add
+    </div>
+</div>
+
+    <div *ngFor="let actor of selectedScene?.actors">
+        <h3>{{actor.firstName}}{{actor.lastName}}</h3>
+        <p>{{actor.currentCharacter}}</p>
+    </div>
+</div>

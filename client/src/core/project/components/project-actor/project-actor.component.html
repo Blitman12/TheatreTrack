@@ -7,9 +7,15 @@
     <form [formGroup]="searchForm" autocomplete="off" class="search">
         <input matInput placeholder="Search an actor" formControlName="searchActors" />
     </form>
-    <div class="found-actors" *ngIf="displayedActors.length > 0; else noactorsTemp">
+    <div
+    cdkDropList
+    id="actorList"
+    cdkDropListConnectedTo="sceneActorList"
+    class="found-actors"
+    *ngIf="displayedActors.length > 0; else noactorsTemp"
+    >
         <div class="actor" *ngFor="let actor of displayedActors">
-            <p title="Name: {{actor.firstName}} {{actor.lastName}}&#010;Age: {{actor.age}}&#010;Current Role: {{actor.currentCharacter}}">{{actor.firstName}} {{actor.lastName}}</p>
+            <p cdkDrag [cdkDragData]="actor" title="Name: {{actor.firstName}} {{actor.lastName}}&#010;Age: {{actor.age}}&#010;Current Role: {{actor.currentCharacter}}">{{actor.firstName}} {{actor.lastName}}</p>
             <div class="icon-container">
                 <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit(actor)"></fa-icon>
                 <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="delete(actor)"></fa-icon>

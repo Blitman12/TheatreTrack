@@ -4,6 +4,7 @@ import { ProjectService } from './project.service';
 import { StoreModule } from '@ngrx/store';
 import { fromProjects } from './state';
 import { EffectsModule } from '@ngrx/effects';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ProjectEffects } from './state/effects';
 import { ProjectInfoComponent } from './components/project-info/project-info.component';
 import { SharedModule } from 'src/shared/shared.module';
@@ -20,6 +21,7 @@ import { ProjectAddNewActComponent } from './components/project-add-act/project-
 import { ProjectEditActComponent } from './components/project-edit-act/project-edit-act.component';
 import { ProjectEditSceneComponent } from './components/project-edit-scene/project-edit-scene.component';
 import { ProjectSceneInfoComponent } from './components/project-scene-info/project-scene-info.component';
+import { ProjectAddActorSceneComponent } from './components/project-add-actor-scene/project-add-actor-scene.component';
 
 
 
@@ -39,10 +41,12 @@ import { ProjectSceneInfoComponent } from './components/project-scene-info/proje
     ProjectAddNewActComponent,
     ProjectEditActComponent,
     ProjectEditSceneComponent,
-    ProjectSceneInfoComponent
+    ProjectSceneInfoComponent,
+    ProjectAddActorSceneComponent
   ],
   imports: [
     CommonModule,
+    DragDropModule,
     StoreModule.forFeature(fromProjects.featureName, fromProjects.reducer),
     EffectsModule.forFeature([ProjectEffects]),
     SharedModule

@@ -7,7 +7,7 @@ import { ProjectSceneInfoComponent } from 'src/core/project/components/project-s
 const routes: Routes = [
   {path: '', component: ProjectLandingComponent},
   {path: 'project/:id', component: ProjectInfoComponent},
-  {path: 'act/:id/scene/:id', component: ProjectSceneInfoComponent}
+  {path: 'project/:id/act/:id/scene/:id', component: ProjectSceneInfoComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
 import { BaseComponent } from 'src/shared/bases/base.component';
@@ -41,7 +42,6 @@ export class ProjectActorComponent extends BaseComponent implements OnInit {
     })
     this.searchForm.valueChanges.pipe(debounceTime(300)).subscribe(() => this.handleSearch())
   }
-
 
   public add(): void {
     this._dialog.open(ProjectAddActorComponent)

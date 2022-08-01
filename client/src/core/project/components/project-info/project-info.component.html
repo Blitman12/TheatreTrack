@@ -27,7 +27,7 @@
         <div class="scenes-container">
             <div class="scene-container" *ngFor="let scene of act.scenes">
                 <div class="scene">
-                    <h3 (click)="goToScene(act, scene)">{{scene.name}}</h3>
+                    <h3 (click)="goToScene(selectedProject!, act, scene)">{{scene.name}}</h3>
                     <div class="icon-container">
                         <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editScene(scene)"></fa-icon>
                         <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteScene(scene)"></fa-icon>

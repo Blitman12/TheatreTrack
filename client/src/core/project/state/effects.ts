@@ -20,7 +20,8 @@ export class ProjectEffects {
             projectActions.addActSuccess,
             projectActions.editActSuccess,
             projectActions.deleteSceneSuccess,
-            projectActions.editSceneSuccess
+            projectActions.editSceneSuccess,
+            projectActions.addPushActorToSceneSuccess
         ),
         switchMap(() => this._projectService.getProjects().pipe(
             map((projects) => projectActions.loadProjectSuccess({ projects })),
@@ -49,6 +50,14 @@ export class ProjectEffects {
         switchMap((action) => this._projectService.addActor(action.firstName, action.lastName, action.age, action?.currentCharacter).pipe(
             map(() => projectActions.addActorSuccess()),
             catchError((error) => of(projectActions.addActorFailure()))
+        ))
+    ));
+
+    requestPushActorToScene$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestPushActorToScene),
+        switchMap((action) => this._projectService.pushActorToScene(action.sceneId, action.actorId).pipe(
+            map(() => projectActions.addPushActorToSceneSuccess()),
+            catchError((error) => of(projectActions.addPushActorToSceneFailure()))
         ))
     ));
 

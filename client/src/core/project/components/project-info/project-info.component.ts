@@ -80,8 +80,8 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     this._dialog.open(ProjectAddSceneComponent, { data: { id: id } })
   }
   
-  public goToScene(act: Act, scene: Scene): void {
-    this._router.navigateByUrl(`act/${act._id}/scene/${scene._id}`)
+  public goToScene(project: Project, act: Act, scene: Scene): void {
+    this._router.navigateByUrl(`project/${project._id}/act/${act._id}/scene/${scene._id}`)
   }
 
   private setupSubscriptions(): void {
