@@ -34,6 +34,10 @@ export const requestPushActorToScene = createAction('[Landing] Request Push Acto
 export const addPushActorToSceneFailure = createAction('[Landing] Push Actor To Scene Failure');
 export const addPushActorToSceneSuccess = createAction('[Landing] Push Actor To Scene Success');
 
+export const requestPullActorToScene = createAction('[Landing] Request Pull Actor To Scene', props<{ sceneId: string, actorId: string }>());
+export const addPullActorToSceneFailure = createAction('[Landing] Pull Actor To Scene Failure');
+export const addPullActorToSceneSuccess = createAction('[Landing] Pull Actor To Scene Success');
+
 export const requestEditActor = createAction('[Landing] Request Edit Actor', props<{ id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string }>());
 export const editActorFailure = createAction('[Landing] Edit Actor Failure');
 export const editActorSuccess = createAction('[Landing] Edit Actor Success');

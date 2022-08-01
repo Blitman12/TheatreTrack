@@ -69,6 +69,10 @@ export class ProjectService {
         return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/addactor/${actorId}`, null));
     }
 
+    public pullActorToScene(sceneId: string, actorId: string): Observable<boolean> {
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/removeactor/${actorId}`, null));
+    }
+
     public editActor(id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string): Observable<boolean> {
         return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`, {
             firstName,

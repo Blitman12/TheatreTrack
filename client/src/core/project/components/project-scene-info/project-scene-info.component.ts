@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 import { BaseComponent } from 'src/shared/bases/base.component';
-import { Act, Project, Scene } from 'src/shared/models';
+import { Act, Actor, Project, Scene } from 'src/shared/models';
 import { ProjectSelectors } from '../../state/selectors';
 import { Store } from '@ngrx/store';
 import { projectActions } from '../../state';
@@ -38,11 +38,13 @@ export class ProjectSceneInfoComponent extends BaseComponent implements OnInit {
     this._setupSubscriptions();
   }
 
-  public addActor(id: string) {
-    console.log(id)
+
+  public remove(actor: Actor): void {
+    const confirm = window.confirm(`Remove ${actor.firstName} From This Scene?`)
+    if (confirm) this._store.dispatch(projectActions.requestPullActorToScene({sceneId: this.selectedSceneId, actorId: actor._id}))
   }
 
-  public drop(event: CdkDragDrop<string[]>) {
+  public drop(event: CdkDragDrop<string[]>): void {
     this._store.dispatch(projectActions.requestPushActorToScene({sceneId: this.selectedSceneId, actorId: event.item.data._id}))
   }
 

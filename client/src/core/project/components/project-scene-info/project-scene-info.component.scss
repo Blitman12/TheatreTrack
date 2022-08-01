@@ -2,18 +2,43 @@
     color: aliceblue;
 }
 
-button {
-    margin-right: 1.5%;
-    font-size: small;
-    align-self: center;
-    width: 175px;
-    height: 27px;
-    padding: 7px 0px 0px 0px;
-    line-height: 0px!important;
+.title-container {
+    h2, p {
+        text-align: center;
+    }
 }
 
+.drag-container{
+    margin: 0 auto;
+    width: 200px;
+    height: 80px;
+    background-color: grey;
+    text-align: center;
+    .drag-text {
+        font-size: 15px;
+        align-self: center;
+    }
+}
 
-.drag {
-    width: 100px;
-    height: 100px;
+.actors-container {
+    display: flex;
+    fa-icon {
+        align-self: center;
+        margin-left: 10px;
+        color: red;
+    }
+}
+h3 {
+    font-size: large;
+    font-weight: 100;
+    .actor-name {
+        color: antiquewhite;
+        font-weight: 800;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .actor-character {
+        color: rgb(209, 243, 243);
+        font-family: 'Times New Roman', Times, serif;
+    }
 }
