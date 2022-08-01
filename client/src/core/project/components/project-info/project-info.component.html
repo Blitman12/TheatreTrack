@@ -1,6 +1,6 @@
 <div class="info-title-container">
     <h2>{{selectedProject?.name}}</h2>
-    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="edit()"></fa-icon>
+    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editProject()"></fa-icon>
     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteProject()"></fa-icon>
 </div>
 
@@ -19,19 +19,18 @@
             <div class="icon-container">
                 <fa-icon [icon]="['fas', 'plus']" (click)="addScene(act._id)"></fa-icon>
                 <div>
-                    <fa-icon [icon]="['fas', 'user-pen']" class="edit"></fa-icon>
+                    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editAct(act)"></fa-icon>
                     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteAct(act)"></fa-icon>
                 </div>
             </div>
         </div>
         <div class="scenes-container">
-            <!-- ng for start div below  -->
             <div class="scene-container" *ngFor="let scene of act.scenes">
                 <div class="scene">
-                    <h3>{{scene.name}}</h3>
+                    <h3 (click)="goToScene(act, scene)">{{scene.name}}</h3>
                     <div class="icon-container">
-                        <fa-icon [icon]="['fas', 'user-pen']" class="edit"></fa-icon>
-                        <fa-icon [icon]="['fas', 'xmark']" class="delete"></fa-icon>
+                        <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editScene(scene)"></fa-icon>
+                        <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteScene(scene)"></fa-icon>
                     </div>
                 </div>
             </div>

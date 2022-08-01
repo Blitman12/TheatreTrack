@@ -38,9 +38,21 @@ export const requestAddScene = createAction('[Landing] Request Add Scene', props
 export const addSceneFailure = createAction('[Landing] Add Scene Failure');
 export const addSceneSuccess = createAction('[Landing] Add Scene Success');
 
+export const requestEditScene = createAction('[Landing] Request Edit Scene', props<{ id: string, name: string }>());
+export const editSceneFailure = createAction('[Landing] Edit Scene Failure');
+export const editSceneSuccess = createAction('[Landing] Edit Scene Success');
+
+export const requestDeleteScene = createAction('[Landing] Request Delete Scene', props<{ id: string }>());
+export const deleteSceneFailure = createAction('[Landing] Delete Scene Failure');
+export const deleteSceneSuccess = createAction('[Landing] Delete Scene Success');
+
 export const requestDeleteAct = createAction('[Landing] Request Delete Act', props<{ id: string }>());
 export const deleteActFailure = createAction('[Landing] Delete Act Failure');
 export const deleteActSuccess = createAction('[Landing] Delete Act Success');
+
+export const requestEditAct = createAction('[Landing] Request Edit Act', props<{ id: string, name: string }>());
+export const editActFailure = createAction('[Landing] Edit Act Failure');
+export const editActSuccess = createAction('[Landing] Edit Act Success');
 
 export const requestAddAct = createAction('[Landing] Request Add Act', props<{ id: string, name: string }>());
 export const addActFailure = createAction('[Landing] Add Act Failure');

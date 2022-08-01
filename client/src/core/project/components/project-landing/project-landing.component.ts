@@ -26,7 +26,6 @@ export class ProjectLandingComponent extends BaseComponent {
 
 
     public handleProject(id: string): void {
-        console.log(id);
         this._router.navigateByUrl(`project/${id}`)
     }
 

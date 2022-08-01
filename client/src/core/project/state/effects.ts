@@ -17,7 +17,10 @@ export class ProjectEffects {
             projectActions.editProjectSuccess,
             projectActions.addSceneSuccess,
             projectActions.deleteActSuccess,
-            projectActions.addActSuccess
+            projectActions.addActSuccess,
+            projectActions.editActSuccess,
+            projectActions.deleteSceneSuccess,
+            projectActions.editSceneSuccess
         ),
         switchMap(() => this._projectService.getProjects().pipe(
             map((projects) => projectActions.loadProjectSuccess({ projects })),
@@ -81,6 +84,23 @@ export class ProjectEffects {
         ))
     ));
 
+    requestEditAct$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestEditAct),
+        switchMap((action) => this._projectService.editAct(action.id, action.name).pipe(
+            map(() => projectActions.editActSuccess()),
+            catchError((error) => of(projectActions.editActFailure()))
+        ))
+    ));
+
+    
+    requestEditScene$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestEditScene),
+        switchMap((action) => this._projectService.editScene(action.id, action.name).pipe(
+            map(() => projectActions.editSceneSuccess()),
+            catchError((error) => of(projectActions.editSceneFailure()))
+        ))
+    ));
+
     requestDeleteProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestDeleteProject),
         switchMap((action) => this._projectService.deleteProject(action.id).pipe(
@@ -97,11 +117,19 @@ export class ProjectEffects {
         ))
     ));
 
-    requestDeleteScene$ = createEffect(() => this._actions$.pipe(
+    requestDeleteAct$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestDeleteAct),
         switchMap((action) => this._projectService.deleteAct(action.id).pipe(
             map(() => projectActions.deleteActSuccess()),
             catchError((error) => of(projectActions.deleteActFailure()))
+        ))
+    ));
+    
+    requestDeleteScene$ = createEffect(() => this._actions$.pipe(
+        ofType(projectActions.requestDeleteScene),
+        switchMap((action) => this._projectService.deleteScene(action.id).pipe(
+            map(() => projectActions.deleteSceneSuccess()),
+            catchError((error) => of(projectActions.deleteSceneFailure()))
         ))
     ));
 

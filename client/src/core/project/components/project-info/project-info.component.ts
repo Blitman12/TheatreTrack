@@ -3,11 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BaseComponent } from 'src/shared/bases/base.component';
-import { Act, Project } from 'src/shared/models';
+import { Act, Project, Scene } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
 import { ProjectAddNewActComponent } from '../project-add-act/project-add-act-new.component';
 import { ProjectAddSceneComponent } from '../project-add-scene/project-add-scene.component';
+import { ProjectEditActComponent } from '../project-edit-act/project-edit-act.component';
+import { ProjectEditSceneComponent } from '../project-edit-scene/project-edit-scene.component';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
 
@@ -48,7 +50,7 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     this._dialog.open(ProjectSetupComponent, { data: { project: this.selectedProject } })
   }
 
-  public edit(): void {
+  public editProject(): void {
     this._dialog.open(ProjectEditComponent, { data: { project: this.selectedProject } })
   }
   
@@ -56,13 +58,30 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
     this._dialog.open(ProjectAddNewActComponent, { data: { project: this.selectedProject } })
   }
 
+  public editAct(act: Act): void {
+    this._dialog.open(ProjectEditActComponent, { data: { act } });
+  }
+
   public deleteAct(act: Act): void {
     const confirmDelete = window.confirm(`Are you sure you want to delete ${act.name}? There is no going back`);
     if (confirmDelete) this._store.dispatch(projectActions.requestDeleteAct({ id: act._id }));
   }
 
+  public deleteScene(scene: Scene): void {
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${scene.name}? There is no going back`);
+    if (confirmDelete) this._store.dispatch(projectActions.requestDeleteScene({ id: scene._id }));
+  }
+
+  public editScene(scene: Scene): void {
+    this._dialog.open(ProjectEditSceneComponent, { data: { scene } })
+  }
+
   public addScene(id: string): void {
     this._dialog.open(ProjectAddSceneComponent, { data: { id: id } })
+  }
+  
+  public goToScene(act: Act, scene: Scene): void {
+    this._router.navigateByUrl(`act/${act._id}/scene/${scene._id}`)
   }
 
   private setupSubscriptions(): void {
