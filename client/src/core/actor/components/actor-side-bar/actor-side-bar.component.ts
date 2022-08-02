@@ -12,16 +12,14 @@ import { actorActions } from 'src/core/project/state';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Actor } from 'src/shared/models';
-import { ActorAddComponent } from '../actor-add/actor-add.component';
-import { ActorEditComponent } from '../actor-edit/actor-edit.component';
-
+import { ActorComponent } from '../actor/actor.component';
 
 @Component({
-  selector: 'app-actor-main',
-  templateUrl: './actor-main.component.html',
-  styleUrls: ['./actor-main.component.scss']
+  selector: 'app-actor-side-bar',
+  templateUrl: './actor-side-bar.component.html',
+  styleUrls: ['./actor-side-bar.component.scss']
 })
-export class ActorMainComponent extends BaseComponent implements OnInit {
+export class ActorSideBarComponent extends BaseComponent implements OnInit {
   public actors: Actor[] = [];
   public selectedActors: Actor[] = [];
   public displayedActors: Actor[] = [];
@@ -48,12 +46,8 @@ export class ActorMainComponent extends BaseComponent implements OnInit {
     this.searchForm.valueChanges.pipe(debounceTime(300)).subscribe(() => this.handleSearch())
   }
 
-  public add(): void {
-    this._dialog.open(ActorAddComponent)
-  }
-
-  public edit(actor: Actor): void {
-    this._dialog.open(ActorEditComponent, {data: {actor}})
+  public edit(actor?: Actor): void {
+    this._dialog.open(ActorComponent, {data: {actor}})
   }
 
   public delete(actor: Actor): void {

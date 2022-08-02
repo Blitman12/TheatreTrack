@@ -8,7 +8,7 @@ export const requestPullActorToScene = createAction('[Landing] Request Pull Acto
 export const addPullActorToSceneFailure = createAction('[Landing] Pull Actor To Scene Failure');
 export const addPullActorToSceneSuccess = createAction('[Landing] Pull Actor To Scene Success');
 
-export const requestAddScene = createAction('[Landing] Request Add Scene', props<{ id: string, name: string }>());
+export const requestAddScene = createAction('[Landing] Request Add Scene', props<{ actId: string, name: string }>());
 export const addSceneFailure = createAction('[Landing] Add Scene Failure');
 export const addSceneSuccess = createAction('[Landing] Add Scene Success');
 

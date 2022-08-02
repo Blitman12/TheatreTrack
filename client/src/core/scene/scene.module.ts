@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
-import { ActComponent } from './components/act/act.component';
-import { ActInfoComponent } from './components/act-info/act-info.component';
-
+import { SceneInfoComponent } from './components/scene-info/scene-info.component';
+import { SceneComponent } from './components/scene/scene.component';
 
 
 
 @NgModule({
   declarations: [
-    ActComponent,
-    ActInfoComponent
+    SceneInfoComponent,
+    SceneComponent
   ],
   imports: [
     CommonModule,
     SharedModule
   ]
 })
-export class ActModule { }
+export class SceneModule { }

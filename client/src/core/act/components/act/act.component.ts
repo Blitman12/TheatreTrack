@@ -12,20 +12,26 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
 import { actActions } from 'src/core/project/state';
+import { Act } from 'src/shared/models';
 
 
 
 @Component({
-  selector: 'app-act-edit',
-  templateUrl: './act-edit.component.html',
-  styleUrls: ['./act-edit.component.scss']
+  selector: 'app-act',
+  templateUrl: './act.component.html',
+  styleUrls: ['./act.component.scss']
 })
-export class ActEditComponent implements OnInit {
+export class ActComponent implements OnInit {
   public editAct!: FormGroup;
-  public actName = "";
+  public act?: Act = this.data?.act ?? undefined;
+  public actName = this.act?.name ?? '';
 
   public get actNameValue(): AbstractControl | null {
       return this.editAct.get('actName')
+  }
+
+  public get title(): string {
+    return this.act ? `Edit: ${this.actName}` : 'New'
   }
 
   public constructor(
@@ -38,7 +44,7 @@ export class ActEditComponent implements OnInit {
 
   public ngOnInit(): void {
       this.editAct = this._formBuilder.group({
-          actName: [this.data.act.name]
+          actName: [this.actName]
       });
   }
 
@@ -47,10 +53,16 @@ export class ActEditComponent implements OnInit {
   }
 
   public save(): void {
-      this._store.dispatch(actActions.requestEditAct({
-          id: this.data.act._id,
-          name: this.actNameValue?.value,
-      }))
-      this._dialog.closeAll()
+    const action = this.act 
+    ? actActions.requestEditAct({
+        id: this.data.act._id,
+        name: this.actNameValue?.value,
+    })
+    : actActions.requestAddAct({
+        projectId: this.data.projectId,
+        name: this.actNameValue?.value
+    });
+    this._store.dispatch(action)
+    this._dialog.closeAll()
   }
 }

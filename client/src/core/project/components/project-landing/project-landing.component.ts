@@ -24,7 +24,7 @@ export class ProjectLandingComponent extends BaseComponent {
      };
 
     public handleProject(id: string): void {
-        this._router.navigateByUrl(`project/${id}`)
+        this._router.navigateByUrl(`act/${id}`)
     }
 
     private setupSubscriptions(): void {

@@ -21,7 +21,7 @@ import { ProjectService } from "../../project.service";
 export class ActEffects {
     requestAddAct$ = createEffect(() => this._actions$.pipe(
         ofType(actActions.requestAddAct),
-        switchMap((action) => this._projectService.addAct(action.id, action.name).pipe(
+        switchMap((action) => this._projectService.addAct(action.projectId, action.name).pipe(
             map(() => actActions.addActSuccess()),
             catchError((error) => of(actActions.addActFailure()))
         ))

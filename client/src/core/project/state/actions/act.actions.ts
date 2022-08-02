@@ -8,6 +8,6 @@ export const requestEditAct = createAction('[Landing] Request Edit Act', props<{
 export const editActFailure = createAction('[Landing] Edit Act Failure');
 export const editActSuccess = createAction('[Landing] Edit Act Success');
 
-export const requestAddAct = createAction('[Landing] Request Add Act', props<{ id: string, name: string }>());
+export const requestAddAct = createAction('[Landing] Request Add Act', props<{ projectId: string, name: string }>());
 export const addActFailure = createAction('[Landing] Add Act Failure');
 export const addActSuccess = createAction('[Landing] Add Act Success');

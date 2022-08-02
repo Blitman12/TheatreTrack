@@ -35,7 +35,7 @@ export class SceneEffects {
 
     requestAddScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestAddScene),
-        switchMap((action) => this._projectService.addScene(action.id, action.name).pipe(
+        switchMap((action) => this._projectService.addScene(action.actId, action.name).pipe(
             map(() => sceneActions.addSceneSuccess()),
             catchError((error) => of(sceneActions.addSceneFailure()))
         ))

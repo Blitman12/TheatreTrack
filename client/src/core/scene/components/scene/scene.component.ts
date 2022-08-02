@@ -12,18 +12,23 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
 import { sceneActions } from 'src/core/project/state';
+import { Scene } from 'src/shared/models';
 
 @Component({
-  selector: 'app-act-edit-scene',
-  templateUrl: './act-edit-scene.component.html',
-  styleUrls: ['./act-edit-scene.component.scss']
+  selector: 'app-scene',
+  templateUrl: './scene.component.html',
+  styleUrls: ['./scene.component.scss']
 })
-export class ActEditSceneComponent implements OnInit {
+export class SceneComponent implements OnInit {
   public editScene!: FormGroup;
-  public sceneName = "";
+  public scene?: Scene = this.data?.scene ?? undefined;
 
   public get sceneNameValue(): AbstractControl | null {
       return this.editScene.get('sceneName')
+  }
+
+  public get title(): string {
+    return this.scene ? this.scene.name : 'New';
   }
 
   public constructor(
@@ -36,7 +41,7 @@ export class ActEditSceneComponent implements OnInit {
 
   public ngOnInit(): void {
       this.editScene = this._formBuilder.group({
-          sceneName: [this.data.scene.name]
+          sceneName: [this.scene?.name ?? '']
       });
   }
 
@@ -45,7 +50,10 @@ export class ActEditSceneComponent implements OnInit {
   }
 
   public save(): void {
-      this._store.dispatch(sceneActions.requestEditScene({ id: this.data.scene._id, name: this.sceneNameValue?.value }))
-      this._dialog.closeAll()
+    const action = this.scene 
+    ? sceneActions.requestEditScene({ id: this.scene._id, name: this.sceneNameValue?.value })
+    : sceneActions.requestAddScene({ actId: this.data.actId, name: this.sceneNameValue?.value})
+    this._store.dispatch(action);
+    this._dialog.closeAll()
   }
 }

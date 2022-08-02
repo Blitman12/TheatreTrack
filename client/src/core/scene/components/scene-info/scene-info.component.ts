@@ -14,11 +14,11 @@ import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { sceneActions } from 'src/core/project/state';
 
 @Component({
-  selector: 'app-act-scene-info',
-  templateUrl: './act-scene-info.component.html',
-  styleUrls: ['./act-scene-info.component.scss']
+  selector: 'app-scene-info',
+  templateUrl: './scene-info.component.html',
+  styleUrls: ['./scene-info.component.scss']
 })
-export class ActSceneInfoComponent extends BaseComponent implements OnInit {
+export class SceneInfoComponent extends BaseComponent implements OnInit {
   public selectedProject?: Project;
   public selectedProjectId = '';
   public selectedAct?: Act;
@@ -41,7 +41,6 @@ export class ActSceneInfoComponent extends BaseComponent implements OnInit {
     this.selectedSceneId = this._router.parseUrl(this._router.url).root.children['primary'].segments[5].path;
     this._setupSubscriptions();
   }
-
 
   public remove(actor: Actor): void {
     const confirm = window.confirm(`Remove ${actor.firstName} From This Scene?`)

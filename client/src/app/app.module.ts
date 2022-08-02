@@ -13,6 +13,7 @@ import { SharedModule } from 'src/shared/shared.module';
 import { ProjectModule } from 'src/core/project/project.module';
 import { ActorModule } from 'src/core/actor/actor.module';
 import { ActModule } from 'src/core/act/act.module';
+import { SceneModule } from 'src/core/scene/scene.module';
 
 
 
@@ -27,6 +28,7 @@ import { ActModule } from 'src/core/act/act.module';
     HttpClientModule,
     ProjectModule,
     ActModule,
+    SceneModule,
     ActorModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot(),

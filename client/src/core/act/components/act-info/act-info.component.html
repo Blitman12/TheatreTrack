@@ -4,7 +4,7 @@
     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteProject()"></fa-icon>
 </div>
 
-<button mat-button class="button-style primary"  (click)="addAct()">Add Act</button>
+<button mat-button class="button-style primary"  (click)="editAct(selectedProject!._id)">Add Act</button>
 
 <div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
     <h3 class="pulsate">No Acts Yet...</h3>
@@ -16,9 +16,9 @@
             <div><h2>{{act.name}}</h2></div>
             <p>Scenes: {{act.scenes.length}}</p>
             <div class="icon-container">
-                <fa-icon [icon]="['fas', 'plus']" (click)="addScene(act._id)"></fa-icon>
+                <fa-icon [icon]="['fas', 'plus']" (click)="editScene(act._id)"></fa-icon>
                 <div>
-                    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editAct(act)"></fa-icon>
+                    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editAct(selectedProject!._id, act)"></fa-icon>
                     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteAct(act)"></fa-icon>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="scene">
                     <h3 (click)="goToScene(selectedProject!, act, scene)">{{scene.name}}</h3>
                     <div class="icon-container">
-                        <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editScene(scene)"></fa-icon>
+                        <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editScene(act._id, scene)"></fa-icon>
                         <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteScene(scene)"></fa-icon>
                     </div>
                 </div>

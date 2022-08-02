@@ -1,22 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
-import { ActorMainComponent } from './components/actor/actor-main.component';
-import { ActorAddComponent } from './components/actor-add/actor-add.component';
-import { ActorEditComponent } from './components/actor-edit/actor-edit.component';
-
-
+import { ActorSideBarComponent } from './components/actor-side-bar/actor-side-bar.component';
+import { ActorComponent } from './components/actor/actor.component';
 
 @NgModule({
   declarations: [
-    ActorMainComponent,
-    ActorAddComponent,
-    ActorEditComponent
+    ActorSideBarComponent,
+    ActorComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
   ],
-  exports: [ActorMainComponent]
+  exports: [ActorSideBarComponent]
 })
 export class ActorModule { }

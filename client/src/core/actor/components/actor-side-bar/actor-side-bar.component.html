@@ -2,7 +2,7 @@
     <div class="actor-header">
         <h2>Actors</h2>
         <div></div>
-        <fa-icon [icon]="['fas', 'plus']" class="add" (click)="add()"></fa-icon>
+        <fa-icon [icon]="['fas', 'plus']" class="add" (click)="edit()"></fa-icon>
     </div>
     <form [formGroup]="searchForm" autocomplete="off" class="search">
         <input matInput placeholder="Search an actor" formControlName="searchActors" />

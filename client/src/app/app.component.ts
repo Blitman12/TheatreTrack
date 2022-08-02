@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { ProjectAddComponent } from 'src/core/project/components/project-add/project-add.component';
+import { ProjectComponent } from 'src/core/project/components/project/project.component';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
     private _store: Store
     ) { }
 
-  public handleModal(): void {
-    this._dialog.open(ProjectAddComponent)
+  public editPlay(): void {
+    this._dialog.open(ProjectComponent)
   }
 }
