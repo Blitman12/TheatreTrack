@@ -11,7 +11,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { ProjectModule } from 'src/core/project/project.module';
 import { projectActions } from 'src/core/project/state';
-import { ActorModule } from 'src/core/actor/actor.module.module';
+import { ActorModule } from 'src/core/actor/actor.module';
+import { ActModule } from 'src/core/act/act.module';
 
 
 
@@ -25,6 +26,7 @@ import { ActorModule } from 'src/core/actor/actor.module.module';
     AppRoutingModule,
     HttpClientModule,
     ProjectModule,
+    ActModule,
     ActorModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot(),

@@ -13,12 +13,8 @@ import { ProjectLandingComponent } from './components/project-landing/project-la
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectSetupComponent } from './components/project-setup/project-setup.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
-import { ProjectAddSceneComponent } from './components/project-add-scene/project-add-scene.component';
-import { ProjectAddNewActComponent } from './components/project-add-act/project-add-act-new.component';
-import { ProjectEditActComponent } from './components/project-edit-act/project-edit-act.component';
 import { ProjectEditSceneComponent } from './components/project-edit-scene/project-edit-scene.component';
 import { ProjectSceneInfoComponent } from './components/project-scene-info/project-scene-info.component';
-import { ProjectAddActorSceneComponent } from './components/project-add-actor-scene/project-add-actor-scene.component';
 
 
 
@@ -31,12 +27,8 @@ import { ProjectAddActorSceneComponent } from './components/project-add-actor-sc
     ProjectCardComponent,
     ProjectSetupComponent,
     ProjectEditComponent,
-    ProjectAddSceneComponent,
-    ProjectAddNewActComponent,
-    ProjectEditActComponent,
     ProjectEditSceneComponent,
     ProjectSceneInfoComponent,
-    ProjectAddActorSceneComponent
   ],
   imports: [
     CommonModule,

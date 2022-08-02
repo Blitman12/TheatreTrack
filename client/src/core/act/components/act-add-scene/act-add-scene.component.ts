@@ -2,14 +2,14 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { projectActions } from '../../state';
+import { projectActions } from 'src/core/project/state';
 
 @Component({
-    selector: 'app-project-add-scene',
-    templateUrl: './project-add-scene.component.html',
-    styleUrls: ['./project-add-scene.component.scss']
+    selector: 'app-act-add-scene',
+    templateUrl: './act-add-scene.component.html',
+    styleUrls: ['./act-add-scene.component.scss']
 })
-export class ProjectAddSceneComponent implements OnInit {
+export class ActAddSceneComponent implements OnInit {
     public addScene!: FormGroup;
     public sceneName = "";
 

@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ActAddSceneComponent } from 'src/core/act/components/act-add-scene/act-add-scene.component';
+import { ActAddComponent } from 'src/core/act/components/act-add/act-add.component';
+import { ActEditComponent } from 'src/core/act/components/act-edit/act-edit.component';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Act, Project, Scene } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
-import { ProjectAddNewActComponent } from '../project-add-act/project-add-act-new.component';
-import { ProjectAddSceneComponent } from '../project-add-scene/project-add-scene.component';
-import { ProjectEditActComponent } from '../project-edit-act/project-edit-act.component';
 import { ProjectEditSceneComponent } from '../project-edit-scene/project-edit-scene.component';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
@@ -55,11 +55,11 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
   }
   
   public addAct(): void {
-    this._dialog.open(ProjectAddNewActComponent, { data: { project: this.selectedProject } })
+    this._dialog.open(ActAddComponent, { data: { project: this.selectedProject } })
   }
 
   public editAct(act: Act): void {
-    this._dialog.open(ProjectEditActComponent, { data: { act } });
+    this._dialog.open(ActEditComponent, { data: { act } });
   }
 
   public deleteAct(act: Act): void {
@@ -77,7 +77,7 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
   }
 
   public addScene(id: string): void {
-    this._dialog.open(ProjectAddSceneComponent, { data: { id: id } })
+    this._dialog.open(ActAddSceneComponent, { data: { id: id } })
   }
   
   public goToScene(project: Project, act: Act, scene: Scene): void {
