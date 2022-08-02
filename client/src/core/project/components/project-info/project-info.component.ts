@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ActAddSceneComponent } from 'src/core/act/components/act-add-scene/act-add-scene.component';
 import { ActAddComponent } from 'src/core/act/components/act-add/act-add.component';
+import { ActEditSceneComponent } from 'src/core/act/components/act-edit-scene/act-edit-scene.component';
 import { ActEditComponent } from 'src/core/act/components/act-edit/act-edit.component';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Act, Project, Scene } from 'src/shared/models';
 import { projectActions } from '../../state';
 import { ProjectSelectors } from '../../state/selectors';
-import { ProjectEditSceneComponent } from '../project-edit-scene/project-edit-scene.component';
 import { ProjectEditComponent } from '../project-edit/project-edit.component';
 import { ProjectSetupComponent } from '../project-setup/project-setup.component';
 
@@ -73,7 +73,7 @@ export class ProjectInfoComponent extends BaseComponent implements OnInit {
   }
 
   public editScene(scene: Scene): void {
-    this._dialog.open(ProjectEditSceneComponent, { data: { scene } })
+    this._dialog.open(ActEditSceneComponent, { data: { scene } })
   }
 
   public addScene(id: string): void {

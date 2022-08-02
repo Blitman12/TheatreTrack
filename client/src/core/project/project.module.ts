@@ -13,8 +13,6 @@ import { ProjectLandingComponent } from './components/project-landing/project-la
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectSetupComponent } from './components/project-setup/project-setup.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
-import { ProjectEditSceneComponent } from './components/project-edit-scene/project-edit-scene.component';
-import { ProjectSceneInfoComponent } from './components/project-scene-info/project-scene-info.component';
 
 
 
@@ -27,8 +25,6 @@ import { ProjectSceneInfoComponent } from './components/project-scene-info/proje
     ProjectCardComponent,
     ProjectSetupComponent,
     ProjectEditComponent,
-    ProjectEditSceneComponent,
-    ProjectSceneInfoComponent,
   ],
   imports: [
     CommonModule,

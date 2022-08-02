@@ -4,16 +4,16 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Act, Actor, Project, Scene } from 'src/shared/models';
-import { ProjectSelectors } from '../../state/selectors';
 import { Store } from '@ngrx/store';
-import { projectActions } from '../../state';
+import { ProjectSelectors } from 'src/core/project/state/selectors';
+import { projectActions } from 'src/core/project/state';
 
 @Component({
-  selector: 'app-project-scene-info',
-  templateUrl: './project-scene-info.component.html',
-  styleUrls: ['./project-scene-info.component.scss']
+  selector: 'app-act-scene-info',
+  templateUrl: './act-scene-info.component.html',
+  styleUrls: ['./act-scene-info.component.scss']
 })
-export class ProjectSceneInfoComponent extends BaseComponent implements OnInit {
+export class ActSceneInfoComponent extends BaseComponent implements OnInit {
   public selectedProject?: Project;
   public selectedProjectId = '';
   public selectedAct?: Act;
