@@ -1,9 +1,18 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { 
+    Component,
+    Inject,
+    OnInit
+} from '@angular/core';
+import { 
+    AbstractControl,
+    FormBuilder, 
+    FormGroup 
+} from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import { projectActions } from 'src/core/project/state';
-import { Actor } from 'src/shared/models';
+
 
 
 @Component({
@@ -18,7 +27,6 @@ export class ActEditComponent implements OnInit {
   public get actNameValue(): AbstractControl | null {
       return this.editAct.get('actName')
   }
-
 
   public constructor(
       @Inject(MAT_DIALOG_DATA)
@@ -45,5 +53,4 @@ export class ActEditComponent implements OnInit {
       }))
       this._dialog.closeAll()
   }
-
 }

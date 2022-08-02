@@ -1,7 +1,16 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { 
+  Component, 
+  Inject, 
+  OnInit
+} from '@angular/core';
+import { 
+  AbstractControl,
+  FormBuilder,
+  FormGroup 
+} from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import { projectActions } from 'src/core/project/state';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 
@@ -63,5 +72,4 @@ export class ActorEditComponent implements OnInit {
       }))
     this._dialog.closeAll()
   }
-
 }

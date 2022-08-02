@@ -1,7 +1,16 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { 
+    Component, 
+    Inject, 
+    OnInit 
+} from '@angular/core';
+import { 
+    AbstractControl,
+    FormBuilder,
+    FormGroup
+} from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import { projectActions } from 'src/core/project/state';
 
 @Component({
@@ -17,7 +26,7 @@ export class ActEditSceneComponent implements OnInit {
       return this.editScene.get('sceneName')
   }
 
-  constructor(
+  public constructor(
       @Inject(MAT_DIALOG_DATA)
       public data: any,
       private _dialog: MatDialog,
@@ -25,7 +34,7 @@ export class ActEditSceneComponent implements OnInit {
       private _store: Store
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
       this.editScene = this._formBuilder.group({
           sceneName: [this.data.scene.name]
       });

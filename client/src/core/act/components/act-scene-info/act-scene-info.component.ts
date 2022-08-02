@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-
-import { BaseComponent } from 'src/shared/bases/base.component';
-import { Act, Actor, Project, Scene } from 'src/shared/models';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
+
+import { 
+  Act,
+  Actor, 
+  Project, 
+  Scene 
+} from 'src/shared/models';
+import { BaseComponent } from 'src/shared/bases/base.component';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { projectActions } from 'src/core/project/state';
 
@@ -20,7 +25,6 @@ export class ActSceneInfoComponent extends BaseComponent implements OnInit {
   public selectedActId = '';
   public selectedScene?: Scene;
   public selectedSceneId = '';
-  public tests = [{name: 'brad'}, {name: 'shane'}]
 
   public constructor(
     private _router: Router,

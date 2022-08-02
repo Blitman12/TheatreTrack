@@ -1,7 +1,16 @@
-import { Component, Inject, OnInit } from "@angular/core";
-import { AbstractControl, FormBuilder, FormGroup } from "@angular/forms";
+import { 
+    Component, 
+    Inject, 
+    OnInit 
+} from "@angular/core";
+import { 
+    AbstractControl, 
+    FormBuilder, 
+    FormGroup 
+} from "@angular/forms";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
+
 import { Project } from "src/shared/models";
 import { projectActions } from "../../state";
 
@@ -52,6 +61,4 @@ export class ProjectEditComponent implements OnInit {
         this._store.dispatch(projectActions.requestEditProject({id: this.project._id, name: this.playNameValue?.value, heroImage: this.playImageValue?.value}))
         this._dialog.closeAll()
     }
-
-
 }

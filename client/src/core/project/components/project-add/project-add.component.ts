@@ -1,7 +1,12 @@
+import { 
+  AbstractControl,
+  FormBuilder, 
+  FormGroup 
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import { projectActions } from '../../state';
 
 @Component({

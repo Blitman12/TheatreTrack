@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Store } from "@ngrx/store";
+
 import { BaseComponent } from "src/shared/bases/base.component";
 import { Project } from "src/shared/models";
 import { ProjectSelectors } from "../../state/selectors";
@@ -16,14 +16,12 @@ export class ProjectLandingComponent extends BaseComponent {
     public defaultImage = '/assets/images/defaultMusical.jpg';
 
     public constructor(
-        private _store: Store,
         private _projectSelectors: ProjectSelectors,
         private _router: Router
     ) { 
         super();
         this.setupSubscriptions();
      };
-
 
     public handleProject(id: string): void {
         this._router.navigateByUrl(`project/${id}`)

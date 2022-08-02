@@ -1,9 +1,14 @@
+import { 
+  AbstractControl, 
+  FormBuilder, 
+  FormGroup 
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+
 import { projectActions } from 'src/core/project/state';
-import { Actor } from 'src/shared/models';
+
 
 @Component({
   selector: 'app-actor-add',
@@ -33,13 +38,13 @@ export class ActorAddComponent implements OnInit {
     return this.addActor.get('actorAge')
   }
 
-  constructor(
+  public constructor(
     private _dialog: MatDialog,
     private _formBuilder: FormBuilder,
     private _store: Store
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.addActor = this._formBuilder.group({
       actorFirstName: [this.actorFirstName],
       actorLastName: [this.actorLastName],
@@ -61,5 +66,4 @@ export class ActorAddComponent implements OnInit {
       }))
     this._dialog.closeAll()
   }
-
 }

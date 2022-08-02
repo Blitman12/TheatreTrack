@@ -1,6 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormGroup } from '@angular/forms';
+
 import { BaseComponent } from 'src/shared/bases/base.component';
 
 @Component({
@@ -14,7 +15,6 @@ export class ProjectSetupComponent extends BaseComponent {
   public constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _dialog: MatDialog,
-    private _formBuilder: FormBuilder,
     ) {
     super();
   }
