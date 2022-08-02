@@ -1,6 +1,10 @@
-import { createReducer, on, Action } from "@ngrx/store";
+import { 
+    createReducer, 
+    on, 
+    Action 
+} from "@ngrx/store";
 
-import {projectActions} from "."
+import {actorActions, projectActions} from "."
 import { Actor, Project } from "../../../shared/models/index";
 
 
@@ -22,14 +26,14 @@ const projectReducer = createReducer(
     on(projectActions.requestLoadProjects, () => ({
         ...initialState
     })),
-    on(projectActions.requestLoadActors, () => ({
+    on(actorActions.requestLoadActors, () => ({
         ...initialState
     })),
     on(projectActions.loadProjectSuccess, (state, {projects}) => ({
         ...state,
         projects: projects
     })),
-    on(projectActions.loadActorsSuccess, (state, {actors}) => ({
+    on(actorActions.loadActorsSuccess, (state, {actors}) => ({
         ...state,
         actors: actors
     })),

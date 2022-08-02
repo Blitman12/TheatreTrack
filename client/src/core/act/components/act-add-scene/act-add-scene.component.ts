@@ -11,7 +11,7 @@ import {
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { projectActions } from 'src/core/project/state';
+import { sceneActions } from 'src/core/project/state';
 
 @Component({
     selector: 'app-act-add-scene',
@@ -45,7 +45,7 @@ export class ActAddSceneComponent implements OnInit {
     }
 
     public save(): void {
-        this._store.dispatch(projectActions.requestAddScene({ id: this._data.id, name: this.sceneNameValue?.value }))
+        this._store.dispatch(sceneActions.requestAddScene({ id: this._data.id, name: this.sceneNameValue?.value }))
         this._dialog.closeAll()
     }
 

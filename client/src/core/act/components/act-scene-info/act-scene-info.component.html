@@ -3,18 +3,23 @@
     <p># of Actors: {{selectedScene?.actors?.length}}</p>
  <div>
 
-<div class="drag-container">
-    <div
-    cdkDropList
-    id="sceneActorList"
-    cdkDropListConnectedTo="actorList"
-    cdkDropListSortingDisabled="true"
-    (cdkDropListDropped)="drop($event)">
-            <div>
-                <p class="drag-text">drag an actor here to add</p>
-            </div>
+<div class="drag-bulk-add-container">
+    <div class="drag-container">
+        <div
+        cdkDropList
+        id="sceneActorList"
+        cdkDropListConnectedTo="actorList"
+        cdkDropListSortingDisabled="true"
+        (cdkDropListDropped)="drop($event)">
+                <div>
+                    <p class="drag-text">drag an actor here to add</p>
+                </div>
+        </div>
     </div>
+    <button mat-button class="primary">Bulk Add Actors</button>
 </div>
+
+
 
 <div *ngFor="let actor of selectedScene?.actors" class="actors-container">
     <h3><span class="actor-name">{{actor.firstName}} {{actor.lastName}}</span> as <span class="actor-character">{{actor.currentCharacter}}</span></h3>

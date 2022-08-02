@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { projectActions } from 'src/core/project/state';
+import { actorActions } from 'src/core/project/state';
 
 
 @Component({
@@ -58,7 +58,7 @@ export class ActorAddComponent implements OnInit {
   }
 
   public save(): void {
-    this._store.dispatch(projectActions.requestAddActor({
+    this._store.dispatch(actorActions.requestAddActor({
       firstName: this.actorFirstNameValue?.value,
       lastName: this.actorLastNameValue?.value,
       age: this.actorAgeValue?.value,

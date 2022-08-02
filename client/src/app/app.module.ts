@@ -5,12 +5,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 
+import { actorActions, projectActions } from 'src/core/project/state';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from 'src/shared/shared.module';
 import { ProjectModule } from 'src/core/project/project.module';
-import { projectActions } from 'src/core/project/state';
 import { ActorModule } from 'src/core/actor/actor.module';
 import { ActModule } from 'src/core/act/act.module';
 
@@ -42,7 +42,7 @@ import { ActModule } from 'src/core/act/act.module';
     useFactory: (store: Store) => {
       console.log('Running App Init')
       store.dispatch(projectActions.requestLoadProjects())
-      store.dispatch(projectActions.requestLoadActors())
+      store.dispatch(actorActions.requestLoadActors())
     },
     deps: [Store],
    }],

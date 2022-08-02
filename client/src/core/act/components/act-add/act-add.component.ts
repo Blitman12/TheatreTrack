@@ -11,7 +11,7 @@ import {
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { projectActions } from 'src/core/project/state';
+import { actActions } from 'src/core/project/state';
 
 
 @Component({
@@ -47,7 +47,7 @@ export class ActAddComponent implements OnInit {
     }
 
     public save(): void {
-        this._store.dispatch(projectActions.requestAddAct({
+        this._store.dispatch(actActions.requestAddAct({
             id: this.data.project._id,
             name: this.actNameValue?.value,
         }))

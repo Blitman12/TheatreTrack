@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
 
-import { projectActions } from 'src/core/project/state';
+import { actorActions } from 'src/core/project/state';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Actor } from 'src/shared/models';
@@ -59,7 +59,7 @@ export class ActorMainComponent extends BaseComponent implements OnInit {
   public delete(actor: Actor): void {
     const confirmDelete = window.confirm('Delete Actor? There is not going back');
     if (confirmDelete) {
-      this._store.dispatch(projectActions.requestDeleteActor({ id: actor._id }))
+      this._store.dispatch(actorActions.requestDeleteActor({ id: actor._id }))
     }
     return;
   }

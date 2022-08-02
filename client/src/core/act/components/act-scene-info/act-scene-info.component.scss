@@ -8,15 +8,28 @@
     }
 }
 
-.drag-container{
-    margin: 0 auto;
-    width: 200px;
-    height: 80px;
-    background-color: grey;
-    text-align: center;
-    .drag-text {
-        font-size: 15px;
+.drag-bulk-add-container {
+    display: flex;
+    justify-content: center;
+    button {
+        margin-left: 20px;
+        font-size: 10px!important;
+        font-weight: 100!important;
         align-self: center;
+        width: 170px;
+        height: 43px;
+        padding: 7px 0px 0px 0px;
+        -line-height: 0px!important;
+    }
+    .drag-container{
+        width: 200px;
+        height: 80px;
+        background-color: grey;
+        text-align: center;
+        .drag-text {
+            font-size: 15px;
+            align-self: center;
+        }
     }
 }
 

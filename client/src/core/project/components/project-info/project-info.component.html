@@ -4,12 +4,11 @@
     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteProject()"></fa-icon>
 </div>
 
-<div *ngIf="selectedProject?.acts?.length === 0" class="get-started">
-    <h2>No Acts yet! Lets get started!</h2>
-    <button mat-button class="button-style primary" (click)="getStarted()">Get Started</button>
-</div>
+<button mat-button class="button-style primary"  (click)="addAct()">Add Act</button>
 
-<button mat-button class="button-style primary" *ngIf="selectedProject?.acts?.length" (click)="addAct()">Add Act</button>
+<div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
+    <h3 class="pulsate">No Acts Yet...</h3>
+</div>
 
 <div class="project-container">
     <div class="project-info-container" *ngFor="let act of selectedProject?.acts">

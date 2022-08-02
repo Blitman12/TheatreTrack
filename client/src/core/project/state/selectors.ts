@@ -1,4 +1,8 @@
-import { createFeatureSelector, createSelector, Store } from "@ngrx/store";
+import { 
+    createFeatureSelector,
+    createSelector, 
+    Store 
+} from "@ngrx/store";
 import { Injectable } from "@angular/core";
 
 import * as fromReducer from './reducer'

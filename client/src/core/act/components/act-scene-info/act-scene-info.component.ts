@@ -11,7 +11,7 @@ import {
 } from 'src/shared/models';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
-import { projectActions } from 'src/core/project/state';
+import { sceneActions } from 'src/core/project/state';
 
 @Component({
   selector: 'app-act-scene-info',
@@ -45,11 +45,11 @@ export class ActSceneInfoComponent extends BaseComponent implements OnInit {
 
   public remove(actor: Actor): void {
     const confirm = window.confirm(`Remove ${actor.firstName} From This Scene?`)
-    if (confirm) this._store.dispatch(projectActions.requestPullActorToScene({sceneId: this.selectedSceneId, actorId: actor._id}))
+    if (confirm) this._store.dispatch(sceneActions.requestPullActorToScene({sceneId: this.selectedSceneId, actorId: actor._id}))
   }
 
   public drop(event: CdkDragDrop<string[]>): void {
-    this._store.dispatch(projectActions.requestPushActorToScene({sceneId: this.selectedSceneId, actorId: event.item.data._id}))
+    this._store.dispatch(sceneActions.requestPushActorToScene({sceneId: this.selectedSceneId, actorId: event.item.data._id}))
   }
 
   private _setupSubscriptions(): void {

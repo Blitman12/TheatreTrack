@@ -11,7 +11,7 @@ import {
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 
-import { projectActions } from 'src/core/project/state';
+import { actorActions } from 'src/core/project/state';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 
 @Component({
@@ -63,7 +63,7 @@ export class ActorEditComponent implements OnInit {
   }
 
   public save(): void {
-    this._store.dispatch(projectActions.requestEditActor({
+    this._store.dispatch(actorActions.requestEditActor({
       id: this.data.actor._id,
       firstName: this.actorFirstNameValue?.value,
       lastName: this.actorLastNameValue?.value,
