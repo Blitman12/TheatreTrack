@@ -61,33 +61,6 @@ router.put('/act/:id', async (req, res) => {
     }
 });
 
-router.put('/act/:actId/addscene/:sceneId', async (req, res) => {
-    const sceneId = req.params.sceneId;
-    const actId = req.params.actId;
-    try {
-        const scene = await Scene.findById(sceneId);
-        await Act.findByIdAndUpdate(actId, { $push: { scenes: scene } }, { new: true }).populate({ path: 'scenes', populate: [{ path: 'actors' }] }).then(dbActData => {
-            res.status(200).send(dbActData);
-        })
-    } catch (error) {
-        res.status(400).send(`An Error Ocurred: ${error}`);
-    }
-});
-
-router.put('/scene/:sceneId/removeactor/:actorId', async (req, res) => {
-    const actorId = req.params.actorId;
-    const sceneId = req.params.sceneId;
-    try {
-        const actor = await Actor.findById(actorId);
-        console.log(actor)
-        await Scene.findByIdAndUpdate(sceneId, { $pull: { actors: actor } }, { new: true }).then(dbSceneData => {
-            res.status(200).send(dbSceneData);
-        })
-    } catch (error) {
-        res.status(400).send(`An Error Ocurred: ${error}`);
-    }
-});
-
 router.delete('/act/:id', async (req, res) => {
     try {
         const actId = req.params.id;
