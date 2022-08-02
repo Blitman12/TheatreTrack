@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const Actor = require('../models/actor');
 const Act = require('../models/acts');
 const Project = require('../models/project')
@@ -77,7 +78,9 @@ router.put('/scene/:sceneId/removeactor/:actorId', async (req, res) => {
     const actorId = req.params.actorId;
     const sceneId = req.params.sceneId;
     try {
-        await Scene.findByIdAndUpdate(sceneId, { $pull: { actors: actorId } }, { new: true }).populate({ path: 'scenes', populate: [{ path: 'actors' }] }).then(dbSceneData => {
+        const actor = await Actor.findById(actorId);
+        console.log(actor)
+        await Scene.findByIdAndUpdate(sceneId, { $pull: { actors: actor } }, { new: true }).then(dbSceneData => {
             res.status(200).send(dbSceneData);
         })
     } catch (error) {

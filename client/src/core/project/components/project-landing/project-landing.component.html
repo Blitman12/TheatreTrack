@@ -1,8 +1,8 @@
 <div class="landing-container">
-   <h2>Plays</h2>
-   <div class="project-container">
-       <div *ngFor="let project of projects" class="project" (click)="handleProject(project._id)">
+    <h2>Plays</h2>
+    <div class="project-container">
+        <div *ngFor="let project of projects" class="project" (click)="handleProject(project._id)">
             <app-project-card [project]="project"></app-project-card>
-       </div>
-   </div>
+        </div>
+    </div>
 </div>
