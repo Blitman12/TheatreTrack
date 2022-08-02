@@ -12,9 +12,6 @@ import { ProjectAddComponent } from './components/project-add/project-add.compon
 import { ProjectLandingComponent } from './components/project-landing/project-landing.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectSetupComponent } from './components/project-setup/project-setup.component';
-import { ProjectActorComponent } from './components/project-actor/project-actor.component';
-import { ProjectAddActorComponent } from './components/project-add-actor/project-add-actor.component';
-import { ProjectEditActorComponent } from './components/project-edit-actor/project-edit-actor.component';
 import { ProjectEditComponent } from './components/project-edit/project-edit.component';
 import { ProjectAddSceneComponent } from './components/project-add-scene/project-add-scene.component';
 import { ProjectAddNewActComponent } from './components/project-add-act/project-add-act-new.component';
@@ -33,9 +30,6 @@ import { ProjectAddActorSceneComponent } from './components/project-add-actor-sc
     ProjectInfoComponent,
     ProjectCardComponent,
     ProjectSetupComponent,
-    ProjectActorComponent,
-    ProjectAddActorComponent,
-    ProjectEditActorComponent,
     ProjectEditComponent,
     ProjectAddSceneComponent,
     ProjectAddNewActComponent,
@@ -52,6 +46,6 @@ import { ProjectAddActorSceneComponent } from './components/project-add-actor-sc
     SharedModule
   ],
   providers: [ProjectService],
-  exports: [ProjectActorComponent]
+  exports: []
 })
 export class ProjectModule { }

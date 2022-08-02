@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+import { projectActions } from 'src/core/project/state';
 import { Actor } from 'src/shared/models';
-import { projectActions } from '../../state';
 
 @Component({
-  selector: 'app-project-add-actor',
-  templateUrl: './project-add-actor.component.html',
-  styleUrls: ['./project-add-actor.component.scss']
+  selector: 'app-actor-add',
+  templateUrl: './actor-add.component.html',
+  styleUrls: ['./actor-add.component.scss']
 })
-export class ProjectAddActorComponent implements OnInit {
+export class ActorAddComponent implements OnInit {
   public addActor!: FormGroup;
   public actorFirstName = "";
   public actorLastName = "";

@@ -2,15 +2,15 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { projectActions } from '../../state';
-import { ProjectSelectors } from '../../state/selectors';
+import { projectActions } from 'src/core/project/state';
+import { ProjectSelectors } from 'src/core/project/state/selectors';
 
 @Component({
-  selector: 'app-project-edit-actor',
-  templateUrl: './project-edit-actor.component.html',
-  styleUrls: ['./project-edit-actor.component.scss']
+  selector: 'app-actor-edit',
+  templateUrl: './actor-edit.component.html',
+  styleUrls: ['./actor-edit.component.scss']
 })
-export class ProjectEditActorComponent implements OnInit {
+export class ActorEditComponent implements OnInit {
   public editActor!: FormGroup;
   public actorFirstName = this.data.actor.firstName;
   public actorLastName = this.data.actor.lastName;

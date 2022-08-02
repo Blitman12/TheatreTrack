@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
+import { projectActions } from 'src/core/project/state';
+import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { Actor } from 'src/shared/models';
-import { projectActions } from '../../state';
-import { ProjectSelectors } from '../../state/selectors';
-import { ProjectAddActorComponent } from '../project-add-actor/project-add-actor.component';
-import { ProjectEditActorComponent } from '../project-edit-actor/project-edit-actor.component';
+import { ActorAddComponent } from '../actor-add/actor-add.component';
+import { ActorEditComponent } from '../actor-edit/actor-edit.component';
+
 
 @Component({
-  selector: 'app-project-actor',
-  templateUrl: './project-actor.component.html',
-  styleUrls: ['./project-actor.component.scss']
+  selector: 'app-actor-main',
+  templateUrl: './actor-main.component.html',
+  styleUrls: ['./actor-main.component.scss']
 })
-export class ProjectActorComponent extends BaseComponent implements OnInit {
+export class ActorMainComponent extends BaseComponent implements OnInit {
   public actors: Actor[] = [];
   public selectedActors: Actor[] = [];
   public displayedActors: Actor[] = [];
@@ -44,11 +44,11 @@ export class ProjectActorComponent extends BaseComponent implements OnInit {
   }
 
   public add(): void {
-    this._dialog.open(ProjectAddActorComponent)
+    this._dialog.open(ActorAddComponent)
   }
 
   public edit(actor: Actor): void {
-    this._dialog.open(ProjectEditActorComponent, {data: {actor}})
+    this._dialog.open(ActorEditComponent, {data: {actor}})
   }
 
   public delete(actor: Actor): void {
