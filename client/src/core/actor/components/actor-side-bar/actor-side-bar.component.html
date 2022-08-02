@@ -1,12 +1,25 @@
 <div class="actor-container">
     <div class="actor-header">
         <h2>Actors</h2>
-        <div></div>
-        <fa-icon [icon]="['fas', 'plus']" class="add" (click)="edit()"></fa-icon>
+        <div class="icon-container">
+            <fa-icon [icon]="['fas', 'plus']" class="add" (click)="edit()"></fa-icon>
+            <fa-layers  (click)="bulkAdd()">
+                <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+                <fa-icon [icon]="['fas', 'plus']" transform="down-5 left-10"></fa-icon>
+                <fa-icon [icon]="['fas', 'plus']" transform="down-10 left-20"></fa-icon>
+            </fa-layers>
+        </div>
     </div>
+
     <form [formGroup]="searchForm" autocomplete="off" class="search">
-        <input matInput placeholder="Search an actor" formControlName="searchActors" />
+        <mat-form-field>
+            <div class="actor-search-field">
+                <input matInput placeholder="Search an actor" formControlName="searchActors" />
+                <fa-icon [icon]="['fas', 'xmark']" (click)="clearText()"></fa-icon>
+            </div>
+        </mat-form-field>
     </form>
+
     <div
     cdkDropList
     id="actorList"

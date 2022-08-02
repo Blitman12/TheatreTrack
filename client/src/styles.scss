@@ -7,21 +7,26 @@
     font-family: "Ballad";
     src: url(assets/fonts/General.otf) format("opentype");
   }
+  
 * {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
+    font-family: sans-serif;
+    font-size: 15px;
   }
+
 @font-face {
     font-family: "Riemann Theatre";
     src: url(assets/fonts/Header.otf) format("opentype");
 }
+
 .header {
     font-family: "Riemann Theatre";
 }
+
 body {
     margin: 0;
     background-color: #1B1B1B;
 }
+
 .mat-button {
     height: 50px;
     width: 150px;
@@ -31,6 +36,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
   }
+
 .primary {
     background-color: $dark-blue-accent-color;
 }

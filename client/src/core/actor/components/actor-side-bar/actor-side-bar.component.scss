@@ -1,5 +1,6 @@
 .actor-container {
     position: fixed;
+    user-select: none;
     min-width: 300px;
     max-width: 300px;
     background-color: #100c08;
@@ -8,6 +9,13 @@
         margin-left: 10px;
         width: 94%;
         color: white;
+        .actor-search-field {
+            display: flex;
+            justify-content: space-around;
+            fa-icon {
+                color: red;
+            }
+        }
     }
     .actor-header {
         display: flex;
@@ -17,12 +25,23 @@
             text-align: left;
             margin-left: 10px;
         }
-        .add {
-            color: green;
-            transform: scale(2);
-            align-self: center;
-            margin-right: 10px;
-            margin-bottom: 5px;
+        .icon-container {
+            display: flex;
+            .add {
+                color: chartreuse;
+                transform: scale(1.2);
+                align-self: center;
+                margin-right: 30px;
+                margin-bottom: 5px;
+            }
+            fa-layers {
+                color:darkcyan;
+                transform: scale(0.9);
+                align-self: center;
+                margin-bottom: 22px;
+                width: 30px;
+                height: 40px;
+            }
         }
     }
 

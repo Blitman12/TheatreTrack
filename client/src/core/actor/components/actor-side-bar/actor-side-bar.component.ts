@@ -46,6 +46,14 @@ export class ActorSideBarComponent extends BaseComponent implements OnInit {
     this.searchForm.valueChanges.pipe(debounceTime(300)).subscribe(() => this.handleSearch())
   }
 
+  public bulkAdd(): void {
+    console.log('Bulk add was clicked');
+  }
+
+  public clearText(): void {
+    this.searchForm.patchValue({searchActors: ''})
+  }
+
   public edit(actor?: Actor): void {
     this._dialog.open(ActorComponent, {data: {actor}})
   }
