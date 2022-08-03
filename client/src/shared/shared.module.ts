@@ -39,7 +39,7 @@ import { ImageLoadHandlerDirective } from './directives/image-load-handler.direc
     BrowserAnimationsModule,
     FontAwesomeModule,
     DragDropModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   exports: [
     MatIconModule,

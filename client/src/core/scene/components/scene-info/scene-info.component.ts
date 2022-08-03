@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
+import * as XLSX from 'xlsx';
 
 import { 
   Act,
@@ -19,6 +20,8 @@ import { sceneActions } from 'src/core/project/state';
   styleUrls: ['./scene-info.component.scss']
 })
 export class SceneInfoComponent extends BaseComponent implements OnInit {
+  @ViewChild('excelTable') 
+  public excelTable?: ElementRef;
   public selectedProject?: Project;
   public selectedProjectId = '';
   public selectedAct?: Act;
@@ -50,6 +53,24 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
   public drop(event: CdkDragDrop<string[]>): void {
     this._store.dispatch(sceneActions.requestPushActorToScene({sceneId: this.selectedSceneId, actorId: event.item.data._id}))
   }
+
+  public print(): void {
+    try {
+      const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(this.excelTable?.nativeElement);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+      XLSX.writeFile(wb, `${this.selectedProject?.name}-${this.selectedAct?.name}-${this.selectedScene?.name}.xlsx`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // private createData(): void {
+  //   const sceneArr = Object.entries(this.selectedScene!)
+  //   console.log(sceneArr)
+  //   const sceneStr = sceneArr.join(',')
+  //   console.log(sceneStr)
+  // }
 
   private _setupSubscriptions(): void {
     this._subscriptions.push(

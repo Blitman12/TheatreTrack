@@ -60,8 +60,8 @@ router.put('/scene/:id', async (req, res) => {
     }
 });
 
-router.put('/scene/:sceneId/addactor/:actorId', async (req, res) => {
-    const actorId = req.params.actorId;
+router.put('/scene/:sceneId/addactor', async (req, res) => {
+    const actorId = req.body.actorId
     const sceneId = req.params.sceneId;
     try {
         const actor = await Actor.findById(actorId);
@@ -74,8 +74,8 @@ router.put('/scene/:sceneId/addactor/:actorId', async (req, res) => {
 });
 
 
-router.put('/scene/:sceneId/removeactor/:actorId', async (req, res) => {
-    const actorId = req.params.actorId;
+router.put('/scene/:sceneId/removeactor', async (req, res) => {
+    const actorId = req.body.actorId;
     const sceneId = req.params.sceneId;
     try {
         const actor = await Actor.findById(actorId);

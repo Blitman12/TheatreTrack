@@ -1,8 +1,12 @@
+import { 
+    Observable,
+    of, 
+    switchMap 
+} from "rxjs";
 import { HttpClient, HttpResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, of, switchMap } from "rxjs";
-import { environment } from "src/environments/environment";
 import { Actor, Project } from "../../shared/models/index";
+import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
@@ -66,11 +70,11 @@ export class ProjectService {
     }
 
     public pushActorToScene(sceneId: string, actorId: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/addactor/${actorId}`, null));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/addactor`, {actorId}));
     }
 
     public pullActorToScene(sceneId: string, actorId: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/removeactor/${actorId}`, null));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/removeactor`, {actorId}));
     }
 
     public editActor(id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string): Observable<boolean> {

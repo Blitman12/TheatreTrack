@@ -16,7 +16,7 @@
                 </div>
         </div>
     </div>
-    <button mat-button class="primary">Bulk Add Actors</button>
+    <button mat-button class="primary" (click)="print()">Print</button>
 </div>
 
 
@@ -25,3 +25,17 @@
     <h3><span class="actor-name">{{actor.firstName}} {{actor.lastName}}</span> as <span class="actor-character">{{actor.currentCharacter}}</span></h3>
     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="remove(actor)"></fa-icon>
 </div>
+
+<table #excelTable style="display: none;">
+    <tr>
+        <th>Actor First Name</th>
+        <th>Actor Last Name</th>
+        <th>Actor Character</th>
+        <th>Number of Actors: {{selectedScene?.actors?.length}}</th>
+    </tr>
+    <tr *ngFor="let actor of selectedScene?.actors">
+        <td>{{actor.firstName}}</td>
+        <td>{{actor.lastName}}</td>
+        <td>{{actor.currentCharacter}}</td>
+    </tr>
+</table>
