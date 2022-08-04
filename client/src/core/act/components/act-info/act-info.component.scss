@@ -45,7 +45,6 @@
 }
 
 .project-container{
-    background-color: black;
     margin-right: 25px;
     border-radius: 2%;
     .project-info-container {
@@ -108,6 +107,9 @@
 
 .delete {
     color: red;
+}
+.print {
+    margin-left: 5px;
 }
 
 button {

@@ -7,13 +7,17 @@
     height: 100vh;
     .search {
         margin-left: 10px;
-        width: 94%;
+        width: 100%;
         color: white;
+        mat-form-field {
+            width: 96%!important;
+        }
         .actor-search-field {
             display: flex;
             justify-content: space-around;
             fa-icon {
                 color: red;
+                padding-left: 10px;
             }
         }
     }
@@ -66,17 +70,6 @@
                 min-width: 45px;
                 display: flex;
                 justify-content: space-around;
-                .edit {
-                    color:rgb(30, 95, 104);
-                    margin-right: 15px;
-                    transform: scale(1);
-                }
-                .delete {
-                    color: red;
-                    margin-right: 10px;
-                    margin-top: 2px;
-                    transform: scale(1.4);
-                }
             }
         }
     }
@@ -102,4 +95,17 @@
     100% { 
         opacity: 0.5;
     }
+}
+
+.delete {
+    color: red;
+    margin-right: 10px;
+    margin-top: 2px;
+    transform: scale(1.4);
+}
+
+.edit {
+    color:rgb(30, 95, 104);
+    margin-right: 15px;
+    transform: scale(1);
 }

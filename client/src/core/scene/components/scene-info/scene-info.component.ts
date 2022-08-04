@@ -1,6 +1,5 @@
 import { 
   Component, 
-  ElementRef, 
   OnInit, 
   ViewChild 
 } from '@angular/core';
@@ -25,8 +24,6 @@ import { sceneActions } from 'src/core/project/state';
   styleUrls: ['./scene-info.component.scss']
 })
 export class SceneInfoComponent extends BaseComponent implements OnInit {
-  @ViewChild('excelTable') 
-  public excelTable?: ElementRef;
   @ViewChild('printButton')
   public printButton?: HTMLAnchorElement;
 
@@ -70,6 +67,7 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
           currentCharacter: actor.currentCharacter
         }
       })
+      console.log(data)
       new AngularCsv(
         data, 
         `${this.selectedProject?.name}-${this.selectedAct?.name}-${this.selectedScene?.name}`,

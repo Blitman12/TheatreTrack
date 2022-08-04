@@ -23,6 +23,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "angular-csv-ext/dist/Angular-csv"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -5,6 +5,7 @@
 </div>
 
 <button mat-button class="button-style primary"  (click)="editAct(selectedProject!._id)">Add Act</button>
+<button mat-button class="primary" (click)="printCSV()">Print</button>
 
 <div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
     <h3 class="pulsate">No Acts Yet...</h3>
@@ -16,7 +17,10 @@
             <div><h2>{{act.name}}</h2></div>
             <p>Scenes: {{act.scenes.length}}</p>
             <div class="icon-container">
-                <fa-icon [icon]="['fas', 'plus']" (click)="editScene(act._id)"></fa-icon>
+                <div>
+                    <fa-icon [icon]="['fas', 'plus']" (click)="editScene(act._id)"></fa-icon>
+                    <fa-icon [icon]="['fas', 'print']" class="print" (click)="printCSV(act)"></fa-icon>
+                </div>
                 <div>
                     <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editAct(selectedProject!._id, act)"></fa-icon>
                     <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteAct(act)"></fa-icon>

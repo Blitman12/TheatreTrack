@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { AngularCsv } from 'angular-csv-ext/dist/Angular-csv';
 
 import { 
   Act, 
   Project, 
   Scene 
 } from 'src/shared/models';
+import { actActions, projectActions, sceneActions } from 'src/core/project/state';
 import { ActComponent } from 'src/core/act/components/act/act.component';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { SceneComponent } from 'src/core/scene/components/scene/scene.component';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
-import { actActions, projectActions, sceneActions } from 'src/core/project/state';
 import { ProjectComponent } from 'src/core/project/components/project/project.component';
 
 @Component({
@@ -21,8 +22,13 @@ import { ProjectComponent } from 'src/core/project/components/project/project.co
   styleUrls: ['./act-info.component.scss']
 })
 export class ActInfoComponent extends BaseComponent implements OnInit {
+  @ViewChild('printButton')
+  public printButton?: HTMLAnchorElement;
   public selectedProject?: Project;
+
   private _id = '';
+  private result = '';
+  private csvHeader = 'Act,Scene,Actor,Character,Actor Count\r\n';
 
   public constructor(
     private _projectSelector: ProjectSelectors,
@@ -71,6 +77,42 @@ export class ActInfoComponent extends BaseComponent implements OnInit {
   
   public goToScene(project: Project, act: Act, scene: Scene): void {
     this._router.navigateByUrl(`project/${project._id}/act/${act._id}/scene/${scene._id}`)
+  }
+
+  public printCSV(act?: Act): void {
+    const func = act ? () => this.actToCSV(act) : () => this.selectedProject?.acts.map(act => this.actToCSV(act));
+    this.print(func);
+  }
+
+  private print(func: () => void): void {
+    this.result = this.csvHeader;
+    try {
+      func();
+      const blob = new Blob([this.result], {type: 'text/csv'})
+      const url = window.URL.createObjectURL(blob);
+      window.open(url, '_self')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  private actToCSV(act: Act): void {
+    for (let i = 0; i < act.scenes.length; i++) {
+      // Not duplicate code - This deals with not duplicating per act
+      const actName = i === 0 ? act.name : ''
+      this.sceneToCSV(actName, act.scenes[i])
+    }
+  }
+
+  private sceneToCSV(actName: string, scene: Scene): void{
+      for (let i = 0; i < scene.actors.length; i++) {
+        const actor = scene.actors[i];
+        const sceneName = i === 0 ? scene.name : '';
+        // Not duplicate code - this deals with not duplicating in scene
+        const act = i === 0 ? actName : ''
+        const actorNum = i === 0 ? scene.actors.length.toString() : ''
+        this.result += `${act}, ${sceneName}, ${actor.firstName} ${actor.lastName}, ${actor.currentCharacter}, ${actorNum}\r\n`
+      }
   }
 
   private setupSubscriptions(): void {
