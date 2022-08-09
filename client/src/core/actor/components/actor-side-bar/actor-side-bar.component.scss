@@ -1,77 +1,19 @@
-.actor-container {
-    position: fixed;
-    user-select: none;
-    min-width: 300px;
-    max-width: 300px;
-    background-color: #100c08;
-    height: 100vh;
-    .search {
-        margin-left: 10px;
-        width: 100%;
-        color: white;
-        mat-form-field {
-            width: 96%!important;
-        }
-        .actor-search-field {
-            display: flex;
-            justify-content: space-around;
-            fa-icon {
-                color: red;
-                padding-left: 10px;
-            }
-        }
-    }
-    .actor-header {
-        display: flex;
-        justify-content: space-between;
-        h2 {
-            color: aliceblue;
-            text-align: left;
-            margin-left: 10px;
-        }
-        .icon-container {
-            display: flex;
-            .add {
-                color: chartreuse;
-                transform: scale(1.2);
-                align-self: center;
-                margin-right: 30px;
-                margin-bottom: 5px;
-            }
-            fa-layers {
-                color:darkcyan;
-                transform: scale(0.9);
-                align-self: center;
-                margin-bottom: 22px;
-                width: 30px;
-                height: 40px;
-            }
-        }
-    }
+@import '/src/assets/styles/variables.scss';
 
-    .found-actors{
-        color: rgb(235, 225, 213);
-        margin-left: 10px;
-        .actor {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            border-bottom: 1px solid green;
-            p {
-                font-size: 10px;
-                white-space: nowrap;
-                max-width: 200px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                cursor: pointer;
-            }
-            .icon-container {
-                align-self: center;
-                min-width: 45px;
-                display: flex;
-                justify-content: space-around;
-            }
-        }
+mat-sidenav-container {
+    height: 90%;
+    mat-sidenav{ 
+        width: 300px;
+    }
+    mat-form-field {
+        width: 280px;
+        margin: 0 $padding;
+    }
+    .actor {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: $padding;
     }
 }
 

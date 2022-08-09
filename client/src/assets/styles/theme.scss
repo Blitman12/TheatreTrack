@@ -34,19 +34,19 @@
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow,
 /* label color */
 .mat-focused .mat-form-field-label {
-    color: $light-blue-accent-color  !important;
+    color:greenyellow !important;
 }
 /* underline color */
 .mat-form-field-underline {
-    background-color: $light-text-color  !important;
+    background-color: rgb(30, 95, 104)  !important;
 }
 /* focused underline color */
 .mat-form-field-ripple {
-    background-color: $light-blue-accent-color  !important;
+    background-color: greenyellow  !important;
 }
 /* input caret color */
 .mat-input-element {
-    caret-color: $light-blue-accent-color  !important;
+    caret-color: rgb(30, 95, 104)  !important;
 }
 /* scrollbar style start */
 ::-webkit-scrollbar {

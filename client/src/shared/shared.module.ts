@@ -17,8 +17,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { ImageLoadHandlerDirective } from './directives/image-load-handler.directive';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -40,6 +43,9 @@ import { ImageLoadHandlerDirective } from './directives/image-load-handler.direc
     FontAwesomeModule,
     DragDropModule,
     MatTabsModule,
+    MatBadgeModule,
+    MatSidenavModule,
+    AppRoutingModule,
   ],
   exports: [
     MatIconModule,
@@ -56,7 +62,10 @@ import { ImageLoadHandlerDirective } from './directives/image-load-handler.direc
     ImageLoadHandlerDirective,
     FontAwesomeModule,
     DragDropModule,
-    MatTabsModule
+    MatTabsModule,
+    MatBadgeModule,
+    MatSidenavModule,
+    AppRoutingModule
   ]
 })
 export class SharedModule {

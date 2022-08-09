@@ -24,7 +24,6 @@ import { SceneModule } from 'src/core/scene/scene.module';
   imports: [
     BrowserModule,
     SharedModule,
-    AppRoutingModule,
     HttpClientModule,
     ProjectModule,
     ActModule,

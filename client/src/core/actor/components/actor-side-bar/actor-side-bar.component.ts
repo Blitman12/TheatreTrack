@@ -3,7 +3,7 @@ import {
   FormBuilder, 
   FormGroup 
 } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs';
@@ -20,6 +20,7 @@ import { ActorComponent } from '../actor/actor.component';
   styleUrls: ['./actor-side-bar.component.scss']
 })
 export class ActorSideBarComponent extends BaseComponent implements OnInit {
+  public opened = true;
   public actors: Actor[] = [];
   public selectedActors: Actor[] = [];
   public displayedActors: Actor[] = [];

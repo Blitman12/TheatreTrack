@@ -25,7 +25,7 @@ import { ProjectEffects } from './state/effects/project.effects';
     DragDropModule,
     StoreModule.forFeature(fromProjects.featureName, fromProjects.reducer),
     EffectsModule.forFeature([ProjectEffects, ActEffects, ActorEffects, SceneEffects]),
-    SharedModule
+    SharedModule,
   ],
   providers: [ProjectService],
   exports: []

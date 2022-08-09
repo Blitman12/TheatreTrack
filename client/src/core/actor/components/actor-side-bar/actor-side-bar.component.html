@@ -1,4 +1,4 @@
-<div class="actor-container">
+<!-- <div class="actor-container">
     <div class="actor-header">
         <h2>Actors</h2>
         <div class="icon-container">
@@ -35,8 +35,71 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<ng-template #noactorsTemp>
-    <p class="no-actors pulsate">No actors found...</p>
-</ng-template>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <form [formGroup]="searchForm" autocomplete="off">
+      <mat-form-field>
+        <div>
+          <input
+            matInput
+            placeholder="Search an actor"
+            formControlName="searchActors"
+          />
+          <fa-icon
+            [icon]="['fas', 'xmark']"
+            (click)="clearText()"
+            class="delete"
+          ></fa-icon>
+          <fa-icon
+            [icon]="['fas', 'plus']"
+            class="add"
+            (click)="edit()"
+          ></fa-icon>
+        </div>
+      </mat-form-field>
+    </form>
+    <div
+      cdkDropList
+      id="actorList"
+      cdkDropListConnectedTo="sceneActorList"
+      *ngIf="displayedActors.length > 0; else noactorsTemp"
+    >
+      <ng-container *ngFor="let actor of displayedActors">
+        <div class="actor">
+          <p
+            cdkDrag
+            [cdkDragData]="actor"
+            title="Name: {{ actor.firstName }} {{ actor.lastName }}&#010;Age: {{
+              actor.age
+            }}&#010;Current Role: {{ actor.currentCharacter }}"
+          >
+            {{ actor.firstName }} {{ actor.lastName }}
+          </p>
+          <div class="icon-container">
+            <fa-icon
+              [icon]="['fas', 'user-pen']"
+              class="edit"
+              (click)="edit(actor)"
+            ></fa-icon>
+            <fa-icon
+              [icon]="['fas', 'xmark']"
+              class="delete"
+              (click)="delete(actor)"
+            ></fa-icon>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </ng-container>
+    </div>
+    <ng-template #noactorsTemp>
+      <p class="no-actors pulsate">No actors found...</p>
+    </ng-template>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
