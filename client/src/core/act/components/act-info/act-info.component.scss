@@ -1,20 +1,22 @@
+@import '/src/assets/styles/colors.scss';
+
 .info-title-container {
     display: flex;
     justify-content: center;
     h2 {
         font-size: x-large;
         text-align: center;
-        color: aliceblue;
+        color: $light-text-color;
     }
     .edit {
-        color:rgb(30, 95, 104);
+        color:$edit-color;
         margin-right: 15px;
         transform: scale(1.1);
         align-self: center;
         margin-left: 10px;
     }
     .delete {
-        color: red;
+        color: $delete-color;
         margin-right: 10px;
         margin-top: 2px;
         transform: scale(1.4);
@@ -54,8 +56,8 @@
         .act-container {
             display: flex;
             flex-direction: column;
-            background-color: grey;
-            color: white;
+            background-color: $dark-background-color;
+            color: $light-text-color;
             border-radius: 2%;
             padding: 3px;
             width: 10%;
@@ -78,7 +80,7 @@
             max-height: 200px;
             .scene-container {
                 margin-left: 5px;
-                background-color: #BDC696;
+                background-color: $dark-background-color;
                 margin: 2px 1px 1px 5px;
                 width: 200px;
                 height: 30px;
@@ -101,12 +103,12 @@
 }
 
 .edit {
-    color: #295f68;
+    color: $edit-color;
     margin-right: 5px;
 }
 
 .delete {
-    color: red;
+    color: $delete-color;
 }
 .print {
     margin-left: 5px;

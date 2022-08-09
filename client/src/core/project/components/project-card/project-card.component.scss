@@ -1,6 +1,11 @@
+@import '/src/assets/styles/colors.scss';
+
 mat-card {
     width: 160px;
     height: 250px;
+    mat-card-header {
+        margin-top: -15px;
+    }
     mat-card-title {
         text-align: left;
         width: 150px;
@@ -16,4 +21,17 @@ mat-card {
         height: 180px;
         margin: 0 auto;
     }
+}
+
+.edit {
+    position: relative;
+    left: 126px;
+    top: -24px;
+    border-radius: 50%;
+    border: $darkest-background-color;
+    border-style: solid;
+    border-width: 5px;
+    border-left: 5px;
+    padding-left: 8px;
+    background: $darkest-background-color;
 }

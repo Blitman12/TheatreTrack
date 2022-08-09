@@ -1,15 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { 
+  Component, 
+  OnInit, 
+  ViewChild 
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AngularCsv } from 'angular-csv-ext/dist/Angular-csv';
 
 import { 
   Act, 
   Project, 
   Scene 
 } from 'src/shared/models';
-import { actActions, projectActions, sceneActions } from 'src/core/project/state';
+import { 
+  actActions,
+  projectActions,
+  sceneActions
+} from 'src/core/project/state';
 import { ActComponent } from 'src/core/act/components/act/act.component';
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { SceneComponent } from 'src/core/scene/components/scene/scene.component';

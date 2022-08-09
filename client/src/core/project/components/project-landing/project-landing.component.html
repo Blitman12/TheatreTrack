@@ -1,7 +1,7 @@
 <div class="landing-container">
     <h2>Plays</h2>
     <div class="project-container">
-        <div *ngFor="let project of projects" class="project" (click)="handleProject(project._id)">
+        <div *ngFor="let project of projects" class="project">
             <app-project-card [project]="project"></app-project-card>
         </div>
     </div>

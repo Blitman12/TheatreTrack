@@ -16,3 +16,5 @@ export const addActorSuccess = createAction('[Landing] Add Actor Success');
 export const requestEditActor = createAction('[Landing] Request Edit Actor', props<{ id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string }>());
 export const editActorFailure = createAction('[Landing] Edit Actor Failure');
 export const editActorSuccess = createAction('[Landing] Edit Actor Success');
+
+export const toggleActorBar = createAction('[Landing] Toggle Actor Bar');

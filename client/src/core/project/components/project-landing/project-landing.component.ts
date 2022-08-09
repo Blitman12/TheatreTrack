@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
 
 import { BaseComponent } from "src/shared/bases/base.component";
 import { Project } from "src/shared/models";
@@ -17,15 +16,10 @@ export class ProjectLandingComponent extends BaseComponent {
 
     public constructor(
         private _projectSelectors: ProjectSelectors,
-        private _router: Router
     ) { 
         super();
         this.setupSubscriptions();
-     };
-
-    public handleProject(id: string): void {
-        this._router.navigateByUrl(`act/${id}`)
-    }
+    };
 
     private setupSubscriptions(): void {
         this._subscriptions.push(this._projectSelectors.projectInfo$.subscribe(projects => this.projects = projects))

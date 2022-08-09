@@ -1,7 +1,11 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title title="{{project.name}}">{{project.name}}</mat-card-title>
-        <mat-card-subtitle><span matBadge="{{project.acts.length}}" matBadgeOverlap="false">Acts</span></mat-card-subtitle>
-    </mat-card-header>
-    <img ImageLoadHandler [defaultSrc]="defaultImage" src={{project.heroImage}} mat-card-image/>
+    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editProject()"></fa-icon>
+    <div (click)="handleProject(project._id)">
+        <mat-card-header>
+            <mat-card-title title="{{project.name}}">{{project.name}}</mat-card-title>
+            <mat-card-subtitle><span matBadge="{{project.acts.length}}" matBadgeOverlap="false" matBadgeColor="accent">Acts</span>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <img ImageLoadHandler [defaultSrc]="defaultImage" src={{project.heroImage}} mat-card-image />
+    </div>
 </mat-card>

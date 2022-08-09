@@ -1,3 +1,4 @@
+import { Statement } from "@angular/compiler";
 import { 
     createReducer, 
     on, 
@@ -6,19 +7,20 @@ import {
 
 import {actorActions, projectActions} from "."
 import { Actor, Project } from "../../../shared/models/index";
-
-
+import { toggleActorBar } from "./actions/actor.actions";
 
 export const featureName = 'Projects';
 
 export interface ProjectState {
     projects: Project[],
-    actors: Actor[]
+    actors: Actor[],
+    toggleActorBar: boolean
 };
 
 export const initialState: ProjectState = {
     projects: [],
-    actors: []
+    actors: [],
+    toggleActorBar: false,
 };
 
 const projectReducer = createReducer(
@@ -37,6 +39,10 @@ const projectReducer = createReducer(
         ...state,
         actors: actors
     })),
+    on(actorActions.toggleActorBar, (state) => ({
+        ...state,
+        toggleActorBar: !state.toggleActorBar
+    }))
 )
 
 export function reducer(state: ProjectState, action: Action): ProjectState {

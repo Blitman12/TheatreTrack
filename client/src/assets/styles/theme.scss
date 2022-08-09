@@ -2,7 +2,7 @@
 
 /* modal styles start */
 .mat-dialog-container {
-    background-color: $light-accent-color;
+    background-color: $dark-background-color;
     padding: 0 !important;
 }
 .mat-dialog-title {
@@ -53,11 +53,11 @@
     width: 13px;
 }
 ::-webkit-scrollbar-track {
-    background: $light-accent-color;
+    background: $dark-background-color;
     border-left: 1px solid black;
 }
 ::-webkit-scrollbar-thumb {
-    background: $dark-accent-color;
+    background: $dark-background-color;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: $shadow-color;

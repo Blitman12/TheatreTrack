@@ -1,4 +1,5 @@
 @import '/src/assets/styles/variables.scss';
+@import '/src/assets/styles/colors.scss';
 
 mat-sidenav-container {
     height: 90%;
@@ -9,17 +10,30 @@ mat-sidenav-container {
         width: 280px;
         margin: 0 $padding;
     }
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+        div {
+            display: flex;
+        }
+    }
     .actor {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding-left: $padding;
+        p {
+            max-width: 215px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
 
 .no-actors {
     text-align: center;
-    color: white;
+    color: $light-text-color;
 }
 
 .pulsate {
@@ -40,14 +54,14 @@ mat-sidenav-container {
 }
 
 .delete {
-    color: red;
+    color: $delete-color;
     margin-right: 10px;
     margin-top: 2px;
     transform: scale(1.4);
 }
 
 .edit {
-    color:rgb(30, 95, 104);
+    color:$edit-color;
     margin-right: 15px;
     transform: scale(1);
 }

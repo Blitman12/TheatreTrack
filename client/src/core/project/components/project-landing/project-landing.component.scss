@@ -1,5 +1,7 @@
+@import '/src/assets/styles/colors.scss';
+
 .landing-container {
-    color: aliceblue;
+    color: $light-text-color;
     h2 {
         text-align: center;
     }
