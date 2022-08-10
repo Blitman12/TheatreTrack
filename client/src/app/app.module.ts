@@ -46,7 +46,7 @@ import { SceneModule } from 'src/core/scene/scene.module';
       store.dispatch(actorActions.requestLoadActors())
     },
     deps: [Store],
-   }],
+  }],
   bootstrap: [AppComponent]
 })
 

@@ -1,25 +1,38 @@
 <div class="title-container">
     <h2>Scene Name: {{selectedScene?.name}}</h2>
     <p># of Actors: {{selectedScene?.actors?.length}}</p>
- <div>
+    <div>
 
-<div class="drag-bulk-add-container">
-    <div class="drag-container">
-        <div
-        cdkDropList
-        id="sceneActorList"
-        cdkDropListConnectedTo="actorList"
-        cdkDropListSortingDisabled="true"
-        (cdkDropListDropped)="drop($event)">
-                <div>
-                    <p class="drag-text">drag an actor here to add</p>
+        <div class="drag-bulk-add-container">
+            <div class="drag-container">
+                <div cdkDropList id="sceneActorList" cdkDropListConnectedTo="actorList"
+                    cdkDropListSortingDisabled="true" (cdkDropListDropped)="drop($event)">
+                    <div>
+                        <p class="drag-text">drag an actor here to add</p>
+                    </div>
                 </div>
+            </div>
+            <button mat-button class="primary" (click)="print()"><a #printButton>Print</a></button>
         </div>
-    </div>
-    <button mat-button class="primary" (click)="print()"><a #printButton>Print</a></button>
-</div>
 
-<div *ngFor="let actor of selectedScene?.actors" class="actors-container">
-    <h3><span class="actor-name">{{actor.firstName}} {{actor.lastName}}</span> as <span class="actor-character">{{actor.currentCharacter}}</span></h3>
-    <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="remove(actor)"></fa-icon>
-</div>
+
+        <div class="table-container">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #table>
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="character">
+                    <th mat-header-cell *matHeaderCellDef> Character </th>
+                    <td mat-cell *matCellDef="let element"> {{element.character}} </td>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                    <td mat-cell *matCellDef="let element">
+                        <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="remove(element.actor)"></fa-icon>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>

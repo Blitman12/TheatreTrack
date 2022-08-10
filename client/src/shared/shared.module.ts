@@ -19,6 +19,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table' 
 
 import { ImageLoadHandlerDirective } from './directives/image-load-handler.directive';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -46,6 +47,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatBadgeModule,
     MatSidenavModule,
     AppRoutingModule,
+    MatTableModule
   ],
   exports: [
     MatIconModule,
@@ -65,7 +67,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatTabsModule,
     MatBadgeModule,
     MatSidenavModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTableModule
   ]
 })
 export class SharedModule {

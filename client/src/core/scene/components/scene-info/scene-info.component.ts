@@ -1,8 +1,4 @@
-import { 
-  Component, 
-  OnInit, 
-  ViewChild 
-} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
@@ -17,16 +13,28 @@ import {
 import { BaseComponent } from 'src/shared/bases/base.component';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { sceneActions } from 'src/core/project/state';
+import { MatTable } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-scene-info',
   templateUrl: './scene-info.component.html',
   styleUrls: ['./scene-info.component.scss']
 })
-export class SceneInfoComponent extends BaseComponent implements OnInit {
+export class SceneInfoComponent extends BaseComponent {
   @ViewChild('printButton')
-  public printButton?: HTMLAnchorElement;
+  public printButton!: HTMLAnchorElement;
 
+  @ViewChild('table') 
+  public table!: MatTable<any>;
+
+
+  public displayedColumns = ['name', 'character', 'delete'];
+  public dataSource = new Array<{
+    name: string,
+    character: string,
+    actor: Actor
+  }>();
   public selectedProject?: Project;
   public selectedProjectId = '';
   public selectedAct?: Act;
@@ -41,14 +49,12 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
   )
   { 
     super();
-  }
-
-  public ngOnInit(): void {
     this.selectedProjectId = this._router.parseUrl(this._router.url).root.children['primary'].segments[1].path;
     this.selectedActId = this._router.parseUrl(this._router.url).root.children['primary'].segments[3].path;
     this.selectedSceneId = this._router.parseUrl(this._router.url).root.children['primary'].segments[5].path;
-    this._setupSubscriptions();
+    this.setupSubscriptions();
   }
+
 
   public remove(actor: Actor): void {
     const confirm = window.confirm(`Remove ${actor.firstName} From This Scene?`)
@@ -67,7 +73,6 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
           currentCharacter: actor.currentCharacter
         }
       })
-      console.log(data)
       new AngularCsv(
         data, 
         `${this.selectedProject?.name}-${this.selectedAct?.name}-${this.selectedScene?.name}`,
@@ -79,7 +84,7 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
     }
   }
 
-  private _setupSubscriptions(): void {
+  private setupSubscriptions(): void {
     this._subscriptions.push(
       this._projectSelector.projectInfo$.subscribe(projects => this.loadProject(projects))
     )
@@ -89,5 +94,18 @@ export class SceneInfoComponent extends BaseComponent implements OnInit {
     this.selectedProject = projects.find(p => p._id === this.selectedProjectId);
     this.selectedAct = this.selectedProject?.acts?.find(p => p._id === this.selectedActId);
     this.selectedScene = this.selectedAct?.scenes?.find(p => p._id === this.selectedSceneId);
+    this.handleDataSource();
+  }
+
+  private handleDataSource(): void {
+    this.dataSource = [];
+    this.selectedScene?.actors.forEach(actor => {
+      this.dataSource.push({
+        name: `${actor.firstName} ${actor.lastName}`,
+        character: actor.currentCharacter,
+        actor: actor
+      })
+    })
+    this.table?.renderRows()
   }
 }
