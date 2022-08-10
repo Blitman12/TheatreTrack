@@ -15,6 +15,13 @@ mat-sidenav-container {
         justify-content: space-between;
         div {
             display: flex;
+            justify-content: space-between;
+            .add {
+                margin-right: 15px;
+            }
+            .delete {
+                margin-right: 5px;
+            }
         }
     }
     .actor {

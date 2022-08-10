@@ -10,10 +10,15 @@
           />
           <div>
             <fa-icon
-              [icon]="['fas', 'plus']"
-              class="add"
-              (click)="edit()"
+            [icon]="['fas', 'plus']"
+            class="add"
+            (click)="edit()"
             ></fa-icon>
+            <fa-icon
+            [icon]="['fas', 'xmark']"
+            class="delete"
+            (click)="clearText()"
+          ></fa-icon>
           </div>
         </div>
       </mat-form-field>
