@@ -1,10 +1,15 @@
-<div class="header">
-  <mat-icon aria-hidden="false" fontIcon="theater_comedy" (click)="toggleActorBar()"></mat-icon>
-  <div>
+<mat-toolbar color="secondary">
+  <button mat-icon-button aria-label="right arrow icon" (click)="toggleActorBar()">
+    <mat-icon>arrow_right_alt</mat-icon>
+  </button>
+  <span>Theater Track</span>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="home icon">
     <mat-icon aria-hidden="false" fontIcon="home" routerLink="/" *ngIf="url !== '/'"></mat-icon>
-  </div>
-  <h1 class="header">Theater Track</h1>
-  <div></div>
-  <button mat-button class="primary" (click)="editPlay()">New Play</button>
-</div>
+  </button>
+  <button mat-icon-button aria-label="add icon" (click)="editPlay()">
+    <mat-icon aria-hidden="false" routerLink="/">add</mat-icon>
+  </button>
+</mat-toolbar>
+
 <app-actor-side-bar></app-actor-side-bar>

@@ -20,6 +20,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table' 
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ImageLoadHandlerDirective } from './directives/image-load-handler.directive';
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -47,7 +48,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatBadgeModule,
     MatSidenavModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ],
   exports: [
     MatIconModule,
@@ -68,7 +70,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatBadgeModule,
     MatSidenavModule,
     AppRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatToolbarModule
   ]
 })
 export class SharedModule {

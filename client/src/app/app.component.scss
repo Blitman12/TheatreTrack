@@ -1,49 +1,9 @@
-@import '/src/assets/styles/colors.scss';
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // color:#129490;
-    background-color:rgb(30, 95, 104);
-    color:  #100c08;
-    // background-color:  #100c08;
-    height: 10%;
-    mat-icon {
-        transform: scale(2.2);
-        align-self: center;
-        margin-left: 1.5%;
-    }
-    h1 {
-        text-shadow: 0px 1px 1px #4d4d4d;
-        font-size: 45px;
-        margin: 0;
-    }
-    button {
-        background-color:  #100c08;
-        margin-right: 1.5%;
-        font-size: small;
-        align-self: center;
-        width: 110px;
-        height: 35px;
-        line-height: 35px;
-        color: whitesmoke;
-    }
+mat-toolbar{
+    height: 7%;
 }
-
+.spacer {
+    flex: 1 1 auto;
+}
 app-actor-side-bar {
-    min-height: 100%;
-}
-
-.toggle-bar {
-    margin-top: 5%;
-    z-index: 5;
-
-    border-radius: 50%;
-    border: $darkest-background-color;
-    border-style: solid;
-    border-width: 5px;
-    border-left: 5px;
-    padding-left: 8px;
-    background: $darkest-background-color;
+    height: 100%;
 }
