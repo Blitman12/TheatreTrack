@@ -1,9 +1,5 @@
 @import '/src/assets/styles/colors.scss';
 
-* {
-    margin-left: 15px;
-}
-
 .info-title-container {
     display: flex;
     justify-content: center;
@@ -50,62 +46,6 @@
     }
 }
 
-.project-container{
-    margin-right: 25px;
-    border-radius: 2%;
-    .project-info-container {
-        display: flex;
-        margin-top: 25px;
-        padding: 10px;
-        .act-container {
-            display: flex;
-            flex-direction: column;
-            background-color: $dark-background-color;
-            color: $light-text-color;
-            border-radius: 2%;
-            padding: 3px;
-            width: 10%;
-            div {
-                h2 {
-                    text-align: center;
-                }
-            }
-            .icon-container {
-                display: flex;
-                justify-content: space-between;
-                margin-top: auto;
-            }
-        }
-        .scenes-container {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            min-height: 200px;
-            max-height: 200px;
-            .scene-container {
-                margin-left: 5px;
-                background-color: $dark-background-color;
-                margin: 2px 1px 1px 5px;
-                width: 200px;
-                height: 30px;
-                .scene {
-                    display: flex;
-                    justify-content: space-between;
-                    margin: 5px;
-                    h3 {
-                        margin-left: 5px;
-                        margin: 0;
-                    }
-                    .icon-container {
-                        margin-right: 13px;
-                        align-self: center;
-                    }
-                }
-            }
-        }
-    }
-}
-
 .edit {
     color: $edit-color;
     margin-right: 5px;
@@ -114,16 +54,40 @@
 .delete {
     color: $delete-color;
 }
-.print {
-    margin-left: 5px;
+
+.left-icon {
+    margin-right: 12px;
 }
 
-button {
-    margin-right: 1.5%;
-    font-size: small;
-    align-self: center;
-    width: 110px;
-    height: 27px;
-    padding: 7px 0px 0px 0px;
-    line-height: 0px!important;
+.right-icon {
+    margin-left: 12px;
+}
+
+.add-print-button {
+    display: flex;
+    justify-content: center;
+    button {
+        margin-right: 1.5%;
+        font-size: small;
+        align-self: center;
+        width: 110px;
+        height: 27px;
+        padding: 7px 0px 0px 0px;
+        line-height: 0px!important;
+        text-align: center;
+    }
+}
+
+.act-container{
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.scene-container {
+    margin: 5px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    .scene-icons {
+        align-self: center;
+    }
 }

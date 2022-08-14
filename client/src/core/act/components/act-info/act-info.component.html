@@ -1,42 +1,73 @@
 <div class="info-title-container">
-    <h2>{{selectedProject?.name}}</h2>
-    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editProject()"></fa-icon>
-    <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteProject()"></fa-icon>
+  <h2>{{ selectedProject?.name }}</h2>
+  <fa-icon
+    [icon]="['fas', 'user-pen']"
+    class="edit"
+    (click)="editProject()"
+  ></fa-icon>
+  <fa-icon
+    [icon]="['fas', 'xmark']"
+    class="delete"
+    (click)="deleteProject()"
+  ></fa-icon>
 </div>
 
-<button mat-button class="button-style primary"  (click)="editAct(selectedProject!._id)">Add Act</button>
-<button mat-button class="primary" (click)="printCSV()">Print</button>
+<div class="add-print-button">
+  <button
+    mat-button
+    class="button-style primary"
+    (click)="editAct(selectedProject!._id)"
+  >
+    Add Act
+  </button>
+  <button mat-button class="primary" (click)="printCSV()">Print</button>
+</div>
 
 <div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
-    <h3 class="pulsate">No Acts Yet...</h3>
+  <h3 class="pulsate">No Acts Yet...</h3>
 </div>
 
-<div class="project-container">
-    <div class="project-info-container" *ngFor="let act of selectedProject?.acts">
-        <div class="act-container">
-            <div><h2>{{act.name}}</h2></div>
-            <p>Scenes: {{act.scenes.length}}</p>
-            <div class="icon-container">
-                <div>
-                    <fa-icon [icon]="['fas', 'plus']" (click)="editScene(act._id)"></fa-icon>
-                    <fa-icon [icon]="['fas', 'print']" class="print" (click)="printCSV(act)"></fa-icon>
-                </div>
-                <div>
-                    <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editAct(selectedProject!._id, act)"></fa-icon>
-                    <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteAct(act)"></fa-icon>
-                </div>
-            </div>
-        </div>
-        <div class="scenes-container">
-            <div class="scene-container" *ngFor="let scene of act.scenes">
-                <div class="scene">
-                    <h3 (click)="goToScene(selectedProject!, act, scene)">{{scene.name}}</h3>
-                    <div class="icon-container">
-                        <fa-icon [icon]="['fas', 'user-pen']" class="edit" (click)="editScene(act._id, scene)"></fa-icon>
-                        <fa-icon [icon]="['fas', 'xmark']" class="delete" (click)="deleteScene(scene)"></fa-icon>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<mat-tab-group class="act-container">
+  <mat-tab *ngFor="let act of selectedProject?.acts">
+    <ng-template mat-tab-label>
+      <fa-icon
+        [icon]="['fas', 'plus']"
+        (click)="editScene(act._id)"
+        class="left-icon"
+      ></fa-icon>
+      <fa-icon
+        [icon]="['fas', 'print']"
+        class="left-icon"
+        (click)="printCSV(act)"
+      ></fa-icon>
+      {{ act.name }}
+      <fa-icon
+        [icon]="['fas', 'user-pen']"
+        (click)="editAct(selectedProject!._id, act)"
+        class="right-icon"
+      ></fa-icon>
+      <fa-icon
+        [icon]="['fas', 'xmark']"
+        (click)="deleteAct(act)"
+        class="right-icon"
+      ></fa-icon>
+    </ng-template>
+    <mat-card *ngFor="let scene of act.scenes" class="scene-container">
+      <mat-card-title (click)="goToScene(selectedProject!, act, scene)">{{
+        scene.name
+      }}</mat-card-title>
+      <mat-card-subtitle class="scene-icons">
+        <fa-icon
+          [icon]="['fas', 'user-pen']"
+          class="edit"
+          (click)="editScene(act._id, scene)"
+        ></fa-icon>
+        <fa-icon
+          [icon]="['fas', 'xmark']"
+          class="delete"
+          (click)="deleteScene(scene)"
+        ></fa-icon>
+      </mat-card-subtitle>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
