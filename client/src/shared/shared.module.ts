@@ -24,11 +24,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ImageLoadHandlerDirective } from './directives/image-load-handler.directive';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { ErrorModalComponent } from './error-modal/error-modal.component';
 
 
 
 @NgModule({
-  declarations: [ImageLoadHandlerDirective],
+  declarations: [ImageLoadHandlerDirective, ErrorModalComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -64,6 +65,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatDialogModule,
     BrowserAnimationsModule,
     ImageLoadHandlerDirective,
+    ErrorModalComponent,
     FontAwesomeModule,
     DragDropModule,
     MatTabsModule,

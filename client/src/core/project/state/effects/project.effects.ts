@@ -2,7 +2,8 @@ import {
     catchError, 
     of, 
     switchMap,
-    map 
+    map, 
+    tap
 } from "rxjs";
 import { 
     Actions, 
@@ -18,6 +19,8 @@ import {
     sceneActions 
 } from "..";
 import { ProjectService } from "../../project.service";
+import { MatDialog } from "@angular/material/dialog";
+import { ErrorModalComponent } from "src/shared/error-modal/error-modal.component";
 
 @Injectable({ providedIn: 'root' })
 export class ProjectEffects {
@@ -45,8 +48,14 @@ export class ProjectEffects {
     requestAddProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestAddProject),
         switchMap((action) => this._projectService.addProject(action.name, action.heroImage).pipe(
-            map(() => projectActions.addProjectSuccess()),
-            catchError((error) => of(projectActions.addProjectFailure()))
+            map(res => {
+                if (res) {
+                   return projectActions.addProjectSuccess()
+                } else {
+                    throw new Error('Soomething bad happened')
+                }
+            }),
+            catchError(() => of(projectActions.addProjectFailure()))
         ))
     ));
 
@@ -66,9 +75,20 @@ export class ProjectEffects {
         ))
     ));
 
+    listenToErrors$ = createEffect(() => this._actions$.pipe(
+        ofType(
+            projectActions.addProjectFailure,
+            projectActions.deleteProjectFailure,
+            projectActions.editProjectFailure,
+            projectActions.loadProjectFailure
+        ),
+        tap(() => this._dialog.open(ErrorModalComponent))
+    ), {dispatch: false})
+
     public constructor(
         private _store: Store,
         private _actions$: Actions,
-        private _projectService: ProjectService
+        private _projectService: ProjectService,
+        private _dialog: MatDialog
     ) { }
 }

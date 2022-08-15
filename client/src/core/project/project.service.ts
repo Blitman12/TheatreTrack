@@ -15,11 +15,11 @@ export class ProjectService {
     constructor(private _http: HttpClient) { }
 
     public getProjects(): Observable<Project[]> {
-        return this._http.get<any>(`${this._baseUrl}/projects`).pipe(
+        return this._http.get<any>(`${this._baseUrl}/projects`, {observe: 'response'}).pipe(
             switchMap(response => {
                 const projects = new Array<Project>();
-                if (response.length > 0) {
-                    response.forEach((item: Project) => {
+                if (response.body.length > 0) {
+                    response.body.forEach((item: Project) => {
                         projects.push(<Project>item)
                     })
                 }
@@ -32,26 +32,30 @@ export class ProjectService {
         return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/projects`, {
             name,
             heroImage
-        }));
+        },
+        {observe: 'response'}
+        ));
     }
 
     public editProject(id: string, name?: string, heroImage?: string): Observable<boolean> {
         return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`, {
             name,
             heroImage
-        }));
+        },
+        {observe: 'response'}
+        ));
     }
 
     public deleteProject(id: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`));
+        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/projects/${id}`, {observe: 'response'}));
     }
 
     public getActors(): Observable<Actor[]> {
-        return this._http.get<any>(`${this._baseUrl}/actors`).pipe(
+        return this._http.get<any>(`${this._baseUrl}/actors`, {observe: 'response'}).pipe(
             switchMap(response => {
                 const actors = new Array<Actor>();
-                if (response.length > 0) {
-                    response.forEach((item: Actor) => {
+                if (response.body.length > 0) {
+                    response.body.forEach((item: Actor) => {
                         actors.push(<Actor>item)
                     })
                 }
@@ -66,15 +70,17 @@ export class ProjectService {
             lastName,
             age,
             currentCharacter
-        }));
+        },
+        {observe: 'response'}
+        ));
     }
 
     public pushActorToScene(sceneId: string, actorId: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/addactor`, {actorId}));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/addactor`, {actorId}, {observe: 'response'}));
     }
 
     public pullActorToScene(sceneId: string, actorId: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/removeactor`, {actorId}));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${sceneId}/removeactor`, {actorId}, {observe: 'response'}));
     }
 
     public editActor(id: string, firstName?: string, lastName?: string, age?: number, currentCharacter?: string): Observable<boolean> {
@@ -83,36 +89,38 @@ export class ProjectService {
             lastName,
             age,
             currentCharacter
-        }));
+        },
+        {observe: 'response'}
+        ));
     }
 
     public deleteActor(id: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`));
+        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/actors/${id}`, {observe: 'response'}));
     }
 
 
     public addScene(id: string, name: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/scene/act/${id}`, { name }));
+        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/scene/act/${id}`, { name }, {observe: 'response'}));
     }
 
     public editScene(id: string, name: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${id}`, { name }));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/scene/${id}`, { name }, {observe: 'response'}));
     }
 
     public deleteScene(id: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/scene/${id}`));
+        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/scene/${id}`, {observe: 'response'}));
     }
 
     public editAct(id: string, name: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/act/${id}`, { name }));
+        return this.ensureSuccess(this._http.put<HttpResponse<any>>(`${this._baseUrl}/act/${id}`, { name }, {observe: 'response'}));
     }
 
     public deleteAct(id: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/act/${id}`));
+        return this.ensureSuccess(this._http.delete<HttpResponse<any>>(`${this._baseUrl}/act/${id}`, {observe: 'response'}));
     }
 
     public addAct(id: string, name: string): Observable<boolean> {
-        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/act/project/${id}`, { name }));
+        return this.ensureSuccess(this._http.post<HttpResponse<any>>(`${this._baseUrl}/act/project/${id}`, { name }, {observe: 'response'}));
     }
 
 
