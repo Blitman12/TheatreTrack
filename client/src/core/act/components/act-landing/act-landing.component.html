@@ -1,0 +1,37 @@
+<div class="info-title-container">
+  <h2 class="page-title">{{ selectedProject?.name }}</h2>
+  <fa-icon
+    [icon]="['fas', 'user-pen']"
+    class="edit"
+    (click)="editProject()"
+  ></fa-icon>
+  <fa-icon
+    [icon]="['fas', 'xmark']"
+    class="delete"
+    (click)="deleteProject()"
+  ></fa-icon>
+</div>
+
+<div class="add-print-button">
+  <button
+    mat-button
+    class="button-style primary"
+    (click)="editAct(selectedProject!._id)"
+  >
+    Add Act
+  </button>
+  <button mat-button class="primary" (click)="printCSV()">Print</button>
+</div>
+
+<div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
+  <h3 class="pulsate">No Acts Yet...</h3>
+</div>
+
+<mat-tab-group class="act-container">
+  <mat-tab *ngFor="let act of selectedProject?.acts" [label]="act.name">
+    <app-act-info
+      [act]="act"
+      [selectedProject]="selectedProject!"
+    ></app-act-info>
+  </mat-tab>
+</mat-tab-group>

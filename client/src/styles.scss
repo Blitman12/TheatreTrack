@@ -19,6 +19,13 @@
     src: url(assets/fonts/Header.otf) format("opentype");
 }
 
+.page-title {
+  font-size: x-large;
+  color: $light-text-color;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
 body {
     margin: 0;
     background-color: $darkest-background-color;

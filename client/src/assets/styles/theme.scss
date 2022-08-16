@@ -63,3 +63,20 @@
     background: $shadow-color;
 }
 /* scrollbar style end */
+
+// Mat-Tab-Bar
+.mat-tab-group.mat-primary .mat-ink-bar {
+    background-color: $light-accent-color!important;
+}
+
+// Mat-Badge-Icon
+.mat-badge-accent .mat-badge-content {
+    background: $dark-accent-color;
+    color: $light-text-color;
+}
+
+.mat-tab-label .mat-tab-label-content {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 3px;
+}

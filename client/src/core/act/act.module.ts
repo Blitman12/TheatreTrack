@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/shared/shared.module';
 import { ActComponent } from './components/act/act.component';
 import { ActInfoComponent } from './components/act-info/act-info.component';
+import { ActLandingComponent } from './components/act-landing/act-landing.component';
 
 
 
@@ -10,7 +11,8 @@ import { ActInfoComponent } from './components/act-info/act-info.component';
 @NgModule({
   declarations: [
     ActComponent,
-    ActInfoComponent
+    ActInfoComponent,
+    ActLandingComponent
   ],
   imports: [
     CommonModule,

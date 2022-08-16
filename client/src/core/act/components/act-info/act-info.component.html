@@ -1,58 +1,24 @@
-<div class="info-title-container">
-  <h2>{{ selectedProject?.name }}</h2>
-  <fa-icon
-    [icon]="['fas', 'user-pen']"
-    class="edit"
-    (click)="editProject()"
-  ></fa-icon>
-  <fa-icon
-    [icon]="['fas', 'xmark']"
-    class="delete"
-    (click)="deleteProject()"
-  ></fa-icon>
-</div>
-
-<div class="add-print-button">
-  <button
-    mat-button
-    class="button-style primary"
-    (click)="editAct(selectedProject!._id)"
-  >
-    Add Act
+<div class="act-panel">
+  <button mat-icon-button>
+    <fa-icon [icon]="['fas', 'plus']" (click)="editScene(act._id)"></fa-icon>
   </button>
-  <button mat-button class="primary" (click)="printCSV()">Print</button>
+  <button mat-icon-button>
+    <fa-icon [icon]="['fas', 'print']" (click)="printCSV(act)"></fa-icon>
+  </button>
+  <button mat-icon-button>
+    <fa-icon
+      [icon]="['fas', 'user-pen']"
+      (click)="editAct(selectedProject!._id, act)"
+    ></fa-icon>
+  </button>
+  <button mat-icon-button>
+    <fa-icon [icon]="['fas', 'xmark']" (click)="deleteAct(act)"></fa-icon>
+  </button>
 </div>
 
-<div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
-  <h3 class="pulsate">No Acts Yet...</h3>
-</div>
-
-<mat-tab-group class="act-container">
-  <mat-tab *ngFor="let act of selectedProject?.acts">
-    <ng-template mat-tab-label>
-      <fa-icon
-        [icon]="['fas', 'plus']"
-        (click)="editScene(act._id)"
-        class="left-icon"
-      ></fa-icon>
-      <fa-icon
-        [icon]="['fas', 'print']"
-        class="left-icon"
-        (click)="printCSV(act)"
-      ></fa-icon>
-      {{ act.name }}
-      <fa-icon
-        [icon]="['fas', 'user-pen']"
-        (click)="editAct(selectedProject!._id, act)"
-        class="right-icon"
-      ></fa-icon>
-      <fa-icon
-        [icon]="['fas', 'xmark']"
-        (click)="deleteAct(act)"
-        class="right-icon"
-      ></fa-icon>
-    </ng-template>
-    <mat-card *ngFor="let scene of act.scenes" class="scene-container">
+<div class="scene-container">
+  <ng-container *ngFor="let scene of act.scenes">
+    <mat-card class="scene-item">
       <mat-card-title (click)="goToScene(selectedProject!, act, scene)">{{
         scene.name
       }}</mat-card-title>
@@ -60,6 +26,7 @@
         matBadge="{{ scene.actors.length }}"
         matBadgeOverlap="false"
         matBadgeColor="accent"
+        class="actor-icon"
         >Actors</span
       >
       <mat-card-subtitle class="scene-icons">
@@ -75,5 +42,5 @@
         ></fa-icon>
       </mat-card-subtitle>
     </mat-card>
-  </mat-tab>
-</mat-tab-group>
+  </ng-container>
+</div>

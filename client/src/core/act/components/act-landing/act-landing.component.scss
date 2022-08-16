@@ -1,0 +1,71 @@
+@import '/src/assets/styles/colors.scss';
+
+.info-title-container {
+    display: flex;
+    justify-content: center;
+    .edit {
+        color:$edit-color;
+        margin-right: 15px;
+        transform: scale(1.1);
+        align-self: center;
+        margin-left: 10px;
+    }
+    .delete {
+        color: $delete-color;
+        margin-right: 10px;
+        margin-top: 2px;
+        transform: scale(1.4);
+        align-self: center;
+    }
+}
+
+.no-acts {
+    text-align: center;
+    margin-top: 15%;
+    color: white;
+    .pulsate {
+        animation: pulsate 3s ease-out;
+        animation-iteration-count: infinite; 
+        opacity: 0.5;
+    }
+    @keyframes pulsate {
+        0% { 
+            opacity: 0.5;
+        }
+        50% { 
+            opacity: 1.0;
+        }
+        100% { 
+            opacity: 0.5;
+        }
+    }
+}
+
+.edit {
+    color: $edit-color;
+    margin-right: 5px;
+}
+
+.delete {
+    color: $delete-color;
+}
+
+.add-print-button {
+    display: flex;
+    justify-content: center;
+    button {
+        margin-right: 1.5%;
+        font-size: small;
+        align-self: center;
+        width: 110px;
+        height: 27px;
+        padding: 7px 0px 0px 0px;
+        line-height: 0px!important;
+        text-align: center;
+    }
+}
+
+.act-container{
+    margin: 0 auto;
+    max-width: 80%;
+}

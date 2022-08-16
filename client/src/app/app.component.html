@@ -1,15 +1,35 @@
 <mat-toolbar color="secondary">
-  <button mat-icon-button aria-label="right arrow icon" (click)="toggleActorBar()">
-    <mat-icon *ngIf="!actorToggleState; else closeBlock">arrow_forward</mat-icon>
-    <ng-template #closeBlock> <mat-icon>arrow_backward</mat-icon></ng-template>
+  <button
+    mat-icon-button
+    aria-label="right arrow icon"
+    (click)="toggleActorBar()"
+    x
+  >
+    <fa-icon [icon]="['fas', 'bars']" class="edit"></fa-icon>
   </button>
-  <span>Theater Track</span>
+  <span class="app-title"
+    ><img
+      src="../assets/images/TheaterOff.png"
+      [@fade]="logoState"
+      (mouseleave)="fadeIn()"
+      (mouseover)="fadeOut()"
+      class="logo-top"
+    />
+    <img src="../assets/images/TheaterOn.png" class="logo-bottom" />
+    <span>heater Track</span></span
+  >
   <span class="spacer"></span>
   <button mat-icon-button aria-label="home icon">
-    <mat-icon aria-hidden="false" fontIcon="home" routerLink="/" *ngIf="url !== '/'"></mat-icon>
+    <mat-icon
+      aria-hidden="false"
+      fontIcon="home"
+      routerLink="/"
+      *ngIf="url !== '/'"
+      class="home"
+    ></mat-icon>
   </button>
   <button mat-icon-button aria-label="add icon" (click)="editPlay()">
-    <mat-icon aria-hidden="false" routerLink="/">add</mat-icon>
+    <mat-icon aria-hidden="false" routerLink="/" class="add">add</mat-icon>
   </button>
 </mat-toolbar>
 

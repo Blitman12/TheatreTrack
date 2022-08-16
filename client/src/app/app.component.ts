@@ -6,18 +6,21 @@ import { filter, map } from 'rxjs';
 import { ProjectComponent } from 'src/core/project/components/project/project.component';
 import { actorActions } from 'src/core/project/state';
 import { ProjectSelectors } from 'src/core/project/state/selectors';
+import { logoFadeAnimation, LogoFadeState } from 'src/shared/animations/logo-animation';
 import { BaseComponent } from 'src/shared/bases/base.component';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [logoFadeAnimation]
 })
 export class AppComponent extends BaseComponent implements OnInit {
   public title = 'Theatre Track';
   public actorToggleState!: boolean;
   public url = '';
+  public logoState = LogoFadeState.In
 
   public constructor(
     private _dialog: MatDialog,
@@ -30,6 +33,14 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   public ngOnInit(): void {
       this.setupSubscriptions();
+  }
+
+  public fadeIn(): void {
+    this.logoState = LogoFadeState.In
+  }
+
+  public fadeOut(): void {
+    this.logoState = LogoFadeState.Out
   }
 
   public editPlay(): void {

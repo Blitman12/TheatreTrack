@@ -11,6 +11,18 @@ table {
     }
 }
 
+.table-header {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $light-accent-color;
+    font-weight: 800;
+}
+
+.actor-icon {
+    font-size: medium;
+    text-transform: uppercase;
+}
+
 .table-container {
     display: flex;
     justify-content: center;
