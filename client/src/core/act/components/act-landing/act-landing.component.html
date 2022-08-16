@@ -1,34 +1,31 @@
-<div class="info-title-container">
-  <h2 class="page-title">{{ selectedProject?.name }}</h2>
-  <fa-icon
-    [icon]="['fas', 'user-pen']"
-    class="edit"
-    (click)="editProject()"
-  ></fa-icon>
-  <fa-icon
-    [icon]="['fas', 'xmark']"
-    class="delete"
-    (click)="deleteProject()"
-  ></fa-icon>
+<div class="page-title larger">
+  {{ selectedProject?.name }}
 </div>
 
-<div class="add-print-button">
-  <button
-    mat-button
-    class="button-style primary"
-    (click)="editAct(selectedProject!._id)"
-  >
-    Add Act
+<div class="actions-panel">
+  <button (click)="editAct(selectedProject!._id)">
+    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+    Act
   </button>
-  <button mat-button class="primary" (click)="printCSV()">Print</button>
+  <button (click)="printCSV()">
+    <fa-icon [icon]="['fas', 'print']"></fa-icon>Print
+  </button>
+  <button (click)="editProject()">
+    <fa-icon [icon]="['fas', 'user-pen']"></fa-icon>Edit
+  </button>
+  <button (click)="deleteProject()">
+    <fa-icon [icon]="['fas', 'xmark']"></fa-icon>Delete
+  </button>
 </div>
 
-<div *ngIf="selectedProject?.acts?.length === 0" class="no-acts">
-  <h3 class="pulsate">No Acts Yet...</h3>
-</div>
+<h3 class="pulsate" *ngIf="selectedProject?.acts?.length === 0">No Acts</h3>
 
-<mat-tab-group class="act-container">
+<mat-tab-group
+  class="act-container"
+  *ngIf="selectedProject?.acts?.length ?? 0 > 0"
+>
   <mat-tab *ngFor="let act of selectedProject?.acts" [label]="act.name">
+    <h3 class="pulsate" *ngIf="act.scenes.length === 0">No scenes</h3>
     <app-act-info
       [act]="act"
       [selectedProject]="selectedProject!"

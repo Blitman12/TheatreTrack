@@ -1,38 +1,34 @@
-@import '/src/assets/styles/colors.scss';
-
-.edit {
-    color: $edit-color;
-    margin-right: 5px;
-}
+@import "/src/assets/styles/colors.scss";
 
 .delete {
-    color: $delete-color;
+  color: $delete-color;
+  font-size: 50px !important;
 }
 
 .act-panel {
-    position: absolute;
-    top: 1px;
-    right: 5px;
-    z-index: 200;
-    border: 3px solid $darkest-background-color;
-    background-color: $dark-accent-color;
-    button {
-        line-height: 0px!important;
-        height: 30px!important;
-    }
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  z-index: 200;
+  border: 3px solid $darkest-background-color;
+  background-color: $dark-accent-color;
+  button {
+    line-height: 0px !important;
+    height: 30px !important;
+  }
 }
 
 .scene-container {
-    margin-top: 25px;
-    min-height: 50px;
+  margin-top: 25px;
+  min-height: 50px;
 }
 
 .scene-item {
-    margin: 5px 0 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .scene-icons {
-        align-self: center;
-    }
+  margin: 5px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .scene-icons {
+    align-self: center;
+  }
 }

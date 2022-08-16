@@ -9,7 +9,6 @@ import { ProjectSelectors } from 'src/core/project/state/selectors';
 import { logoFadeAnimation, LogoFadeState } from 'src/shared/animations/logo-animation';
 import { BaseComponent } from 'src/shared/bases/base.component';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,11 +36,6 @@ export class AppComponent extends BaseComponent implements OnInit {
         this.logoState = this.logoState === LogoFadeState.In ? LogoFadeState.Out : LogoFadeState.In;
       }, 1000)
   }
-
-
-
-
-
 
   public editPlay(): void {
     this._dialog.open(ProjectComponent);

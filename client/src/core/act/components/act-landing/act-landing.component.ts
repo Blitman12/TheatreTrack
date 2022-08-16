@@ -39,11 +39,12 @@ export class ActLandingComponent extends BaseComponent implements OnInit {
     private _store: Store
   ) {
     super();
+    this._id = this._router.parseUrl(this._router.url).root.children['primary'].segments[1].path;
+    this.setupSubscriptions();
   }
 
   public ngOnInit(): void {
-    this._id = this._router.parseUrl(this._router.url).root.children['primary'].segments[1].path;
-    this.setupSubscriptions();
+
   }
 
   public deleteProject(): void {
