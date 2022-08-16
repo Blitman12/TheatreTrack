@@ -33,15 +33,15 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   public ngOnInit(): void {
       this.setupSubscriptions();
+      setInterval(() => {
+        this.logoState = this.logoState === LogoFadeState.In ? LogoFadeState.Out : LogoFadeState.In;
+      }, 1000)
   }
 
-  public fadeIn(): void {
-    this.logoState = LogoFadeState.In
-  }
 
-  public fadeOut(): void {
-    this.logoState = LogoFadeState.Out
-  }
+
+
+
 
   public editPlay(): void {
     this._dialog.open(ProjectComponent);

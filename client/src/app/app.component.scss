@@ -2,6 +2,7 @@
 
 mat-toolbar{
     height: 7%;
+    min-height: 55px;
 }
 .spacer {
     flex: 1 1 auto;
@@ -17,7 +18,7 @@ mat-toolbar{
         width: 35px;
     }
     span {
-        margin-left: 35px;
+        margin-left: 40px;
     }
 }
 .add, .home {

@@ -10,8 +10,7 @@ import {
     trigger('fade', [
       state('in', style({ opacity: 1 })),
       state('out', style({ opacity: 0 })),
-      transition('* => out', animate('10ms')),
-      transition('* => in', animate('500ms ease-out')),
+      transition('* => *', animate('10ms')),
     ]),
   ];
   export enum LogoFadeState {
