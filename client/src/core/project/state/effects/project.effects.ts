@@ -12,6 +12,9 @@ import {
 } from '@ngrx/effects';
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
+import { MatDialog } from "@angular/material/dialog";
+
+import { BaseEffects } from "src/shared/bases";
 
 import { 
     actActions, 
@@ -19,11 +22,10 @@ import {
     sceneActions 
 } from "..";
 import { ProjectService } from "../../project.service";
-import { MatDialog } from "@angular/material/dialog";
 import { ErrorModalComponent } from "src/shared/error-modal/error-modal.component";
 
 @Injectable({ providedIn: 'root' })
-export class ProjectEffects {
+export class ProjectEffects extends BaseEffects {
     requestProjects$ = createEffect(() => this._actions$.pipe(
         ofType(
             projectActions.requestLoadProjects,
@@ -40,38 +42,33 @@ export class ProjectEffects {
             sceneActions.addPullActorToSceneSuccess
         ),
         switchMap(() => this._projectService.getProjects().pipe(
-            map((projects) => projectActions.loadProjectSuccess({ projects })),
-            catchError((error) => of(projectActions.loadProjectFailure()))
+            // map((projects) => projectActions.loadProjectSuccess({ projects })),
+            map((projects) => this.handleResponse(projects, projectActions.loadProjectSuccess({ projects }), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, projectActions.loadProjectFailure()))
         ))
     ));
 
     requestAddProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestAddProject),
         switchMap((action) => this._projectService.addProject(action.name, action.heroImage).pipe(
-            map(res => {
-                if (res) {
-                   return projectActions.addProjectSuccess()
-                } else {
-                    throw new Error('Soomething bad happened')
-                }
-            }),
-            catchError(() => of(projectActions.addProjectFailure()))
+            map(res => this.handleResponse(res, projectActions.addProjectSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error,projectActions.addProjectFailure()))
         ))
     ));
 
     requestEditProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestEditProject),
         switchMap((action) => this._projectService.editProject(action.id, action?.name, action?.heroImage).pipe(
-            map(() => projectActions.editProjectSuccess()),
-            catchError((error) => of(projectActions.editProjectFailure()))
+            map(res => this.handleResponse(res, projectActions.editProjectSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error,projectActions.editProjectFailure()))
         ))
     ));
 
     requestDeleteProject$ = createEffect(() => this._actions$.pipe(
         ofType(projectActions.requestDeleteProject),
         switchMap((action) => this._projectService.deleteProject(action.id).pipe(
-            map(() => projectActions.deleteProjectSuccess()),
-            catchError((error) => of(projectActions.deleteProjectFailure()))
+            map(res => this.handleResponse(res,  projectActions.deleteProjectSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error,projectActions.deleteProjectFailure()))
         ))
     ));
 
@@ -90,5 +87,5 @@ export class ProjectEffects {
         private _actions$: Actions,
         private _projectService: ProjectService,
         private _dialog: MatDialog
-    ) { }
+    ) { super() }
 }

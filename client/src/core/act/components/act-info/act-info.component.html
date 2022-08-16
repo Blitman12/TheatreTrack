@@ -56,7 +56,12 @@
       <mat-card-title (click)="goToScene(selectedProject!, act, scene)">{{
         scene.name
       }}</mat-card-title>
-      <span matBadge="{{scene.actors.length}}" matBadgeOverlap="false" matBadgeColor="accent">Actors</span>
+      <span
+        matBadge="{{ scene.actors.length }}"
+        matBadgeOverlap="false"
+        matBadgeColor="accent"
+        >Actors</span
+      >
       <mat-card-subtitle class="scene-icons">
         <fa-icon
           [icon]="['fas', 'user-pen']"

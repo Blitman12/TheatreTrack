@@ -2,7 +2,8 @@ import {
     catchError, 
     of, 
     switchMap,
-    map 
+    map, 
+    tap
 } from "rxjs";
 import { 
     Actions, 
@@ -14,38 +15,41 @@ import { Store } from "@ngrx/store";
 
 import { ProjectService } from "../../project.service";
 import { sceneActions } from "..";
+import { MatDialog } from "@angular/material/dialog";
+import { ErrorModalComponent } from "src/shared/error-modal/error-modal.component";
+import { BaseEffects } from "src/shared/bases";
 
 @Injectable({ providedIn: 'root' })
-export class SceneEffects {
+export class SceneEffects extends BaseEffects {
     requestPushActorToScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestPushActorToScene),
         switchMap((action) => this._projectService.pushActorToScene(action.sceneId, action.actorId).pipe(
-            map(() => sceneActions.addPushActorToSceneSuccess()),
-            catchError((error) => of(sceneActions.addPushActorToSceneFailure()))
+            map(res => this.handleResponse(res, sceneActions.addPushActorToSceneSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, sceneActions.addPushActorToSceneFailure()))
         ))
     ));
 
     requestPullActorToScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestPullActorToScene),
         switchMap((action) => this._projectService.pullActorToScene(action.sceneId, action.actorId).pipe(
-            map(() => sceneActions.addPullActorToSceneSuccess()),
-            catchError((error) => of(sceneActions.addPullActorToSceneFailure()))
+            map(res => this.handleResponse(res, sceneActions.addPullActorToSceneSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, sceneActions.addPullActorToSceneFailure()))
         ))
     ));
 
     requestAddScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestAddScene),
         switchMap((action) => this._projectService.addScene(action.actId, action.name).pipe(
-            map(() => sceneActions.addSceneSuccess()),
-            catchError((error) => of(sceneActions.addSceneFailure()))
+            map(res => this.handleResponse(res, sceneActions.addSceneSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, sceneActions.addSceneFailure()))
         ))
     ));
 
     requestEditScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestEditScene),
         switchMap((action) => this._projectService.editScene(action.id, action.name).pipe(
-            map(() => sceneActions.editSceneSuccess()),
-            catchError((error) => of(sceneActions.editSceneFailure()))
+            map(res => this.handleResponse(res,  sceneActions.editSceneSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, sceneActions.editSceneFailure()))
         ))
     ));
 
@@ -53,14 +57,26 @@ export class SceneEffects {
     requestDeleteScene$ = createEffect(() => this._actions$.pipe(
         ofType(sceneActions.requestDeleteScene),
         switchMap((action) => this._projectService.deleteScene(action.id).pipe(
-            map(() => sceneActions.deleteSceneSuccess()),
-            catchError((error) => of(sceneActions.deleteSceneFailure()))
+            map(res => this.handleResponse(res,  sceneActions.deleteSceneSuccess(), 'Something went wrong')),
+            catchError((error) => this.handleFailure(error, sceneActions.deleteSceneFailure()))
         ))
     ));
+
+    listenToErrors$ = createEffect(() => this._actions$.pipe(
+        ofType(
+            sceneActions.addSceneFailure,
+            sceneActions.deleteSceneFailure,
+            sceneActions.editSceneFailure,
+            sceneActions.addPullActorToSceneFailure,
+            sceneActions.addPushActorToSceneFailure
+        ),
+        tap(() => this._dialog.open(ErrorModalComponent))
+    ), {dispatch: false})
 
     public constructor(
         private _store: Store,
         private _actions$: Actions,
-        private _projectService: ProjectService
-    ) { }
+        private _projectService: ProjectService,
+        private _dialog: MatDialog
+    ) { super() }
 }
