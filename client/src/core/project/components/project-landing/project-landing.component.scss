@@ -1,16 +1,22 @@
-@import '/src/assets/styles/colors.scss';
+@import "/src/assets/styles/colors.scss";
 
 .landing-container {
-    color: $light-text-color;
-    .project-container {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .project {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        margin: 20px;
-    }
+  color: $light-text-color;
+  .project-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .project {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 20px;
+  }
+}
+
+.larger {
+  font-size: 3em;
+  text-align: center;
+  margin: 15px;
 }

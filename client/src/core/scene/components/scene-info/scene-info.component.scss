@@ -26,30 +26,6 @@
   }
 }
 
-.drag-bulk-add-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-  .drag-container {
-    width: 200px;
-    height: 80px;
-    background-color: $dark-background-color;
-    border: solid 1px black;
-    text-align: center;
-    .drag-text {
-      font-size: 15px;
-      align-self: center;
-      font-family: Futura;
-      background-color: $light-background-color;
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: rgba(245, 245, 245, 0) 1px 1px 1px;
-    }
-  }
-}
-
 table {
   width: 40%;
   fa-icon {
@@ -68,6 +44,10 @@ table {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+td {
+  color: $light-subtext-color;
 }
 
 .mat-column-name {

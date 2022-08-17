@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDrag } from '@angular/cdk/drag-drop';
 import { Store } from '@ngrx/store';
 import { AngularCsv } from 'angular-csv-ext/dist/Angular-csv';
 
@@ -67,12 +67,17 @@ export class SceneInfoComponent extends BaseComponent {
   }
 
   public drop(event: CdkDragDrop<string[]>): void {
-    this._store.dispatch(
-      sceneActions.requestPushActorToScene({
-        sceneId: this.selectedSceneId,
-        actorId: event.item.data._id,
-      })
+    const actors = this.selectedScene?.actors.filter(
+      (actor) => event.item.data._id === actor._id
     );
+    if (actors?.length === 0) {
+      this._store.dispatch(
+        sceneActions.requestPushActorToScene({
+          sceneId: this.selectedSceneId,
+          actorId: event.item.data._id,
+        })
+      );
+    }
   }
 
   public print(): void {

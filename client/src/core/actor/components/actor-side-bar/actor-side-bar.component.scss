@@ -1,74 +1,100 @@
-@import '/src/assets/styles/variables.scss';
-@import '/src/assets/styles/colors.scss';
+@import "/src/assets/styles/variables.scss";
+@import "/src/assets/styles/colors.scss";
 
 mat-sidenav-container {
-    height: 93%;
-    mat-sidenav{ 
-        width: 300px;
+  height: 93%;
+  mat-sidenav {
+    width: 300px;
+  }
+  mat-form-field {
+    width: 280px;
+    margin: 0 $padding;
+  }
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+      justify-content: space-between;
+      .add {
+        margin-right: 15px;
+      }
+      .delete {
+        margin-right: 5px;
+      }
     }
-    mat-form-field {
-        width: 280px;
-        margin: 0 $padding;
+  }
+  .actor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: $padding;
+    color: $light-text-color;
+    margin: 10px 0;
+    p {
+      max-width: 215px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .form-container {
-        display: flex;
-        justify-content: space-between;
-        div {
-            display: flex;
-            justify-content: space-between;
-            .add {
-                margin-right: 15px;
-            }
-            .delete {
-                margin-right: 5px;
-            }
-        }
-    }
-    .actor {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-left: $padding;
-        p {
-            max-width: 215px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
+  }
 }
 
 .no-actors {
-    text-align: center;
-    color: $light-text-color;
+  text-align: center;
+  color: $light-text-color;
 }
 
 .pulsate {
-    animation: pulsate 3s ease-out;
-    animation-iteration-count: infinite; 
-    opacity: 0.5;
+  animation: pulsate 3s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
 }
 @keyframes pulsate {
-    0% { 
-        opacity: 0.5;
-    }
-    50% { 
-        opacity: 1.0;
-    }
-    100% { 
-        opacity: 0.5;
-    }
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 
 .delete {
-    color: $delete-color;
-    margin-right: 10px;
-    margin-top: 2px;
-    transform: scale(1.4);
+  color: $delete-color;
+  margin-right: 10px;
+  margin-top: 2px;
+  transform: scale(1.4);
 }
 
 .edit {
-    color:$edit-color;
-    margin-right: 15px;
-    transform: scale(1);
+  color: $edit-color;
+  margin-right: 15px;
+  transform: scale(1);
+}
+
+.preview-item {
+  background-color: $dark-background-color;
+  border: 1px solid $border-color;
+  width: 500px;
+  height: 35px;
+  th {
+    td {
+      margin: 15px 24px;
+      font-size: 14px;
+    }
+  }
+}
+
+.cdk-drag-preview {
+  color: $light-accent-color;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.5;
+  margin: 15px 24px;
+  font-size: 14px;
+  color: $light-subtext-color;
 }

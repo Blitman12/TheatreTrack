@@ -1,38 +1,39 @@
-@import '/src/assets/styles/colors.scss';
+@import "/src/assets/styles/colors.scss";
 
 mat-card {
-    width: 160px;
-    height: 250px;
-    mat-card-header {
-        margin-top: -15px;
-    }
-    mat-card-title {
-        text-align: left;
-        width: 150px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    mat-card-subtitle {
-        margin-top: 15px!important;
-    }
-    img {
-        width: 135px;
-        height: 180px;
-        margin: 0 auto;
-    }
+  width: 160px;
+  height: 250px;
+  mat-card-header {
+    margin-top: -15px;
+    color: $light-subtext-color;
+  }
+  mat-card-title {
+    text-align: left;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  mat-card-subtitle {
+    margin-top: 15px !important;
+  }
+  img {
+    width: 135px;
+    height: 180px;
+    margin: 0 auto;
+  }
 }
 
 .edit {
-    position: relative;
-    left: 126px;
-    top: -24px;
-    border-radius: 50%;
-    border: $darkest-background-color;
-    border-style: solid;
-    border-width: 5px;
-    border-left: 5px;
-    padding-left: 8px;
-    background: $darkest-background-color;
-    color: $edit-color;
+  position: relative;
+  left: 126px;
+  top: -24px;
+  border-radius: 50%;
+  border: $darkest-background-color;
+  border-style: solid;
+  border-width: 5px;
+  border-left: 5px;
+  padding-left: 8px;
+  background: $darkest-background-color;
+  color: $edit-color;
 }

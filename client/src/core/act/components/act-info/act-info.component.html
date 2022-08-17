@@ -19,23 +19,23 @@
 <div class="scene-container">
   <ng-container *ngFor="let scene of act.scenes">
     <mat-card class="scene-item">
-      <mat-card-title (click)="goToScene(selectedProject!, act, scene)">{{
-        scene.name
-      }}</mat-card-title>
+      <div (click)="goToScene(selectedProject!, act, scene)" class="scene-name">
+        {{ scene.name }}
+      </div>
       <span
         matBadge="{{ scene.actors.length }}"
         matBadgeOverlap="false"
         matBadgeColor="accent"
-        class="actor-icon"
+        class="badge"
         >Actors</span
       >
-      <mat-card-subtitle class="scene-icons">
+      <div class="scene-icons">
         <fa-icon
           [icon]="['fas', 'xmark']"
           class="delete"
           (click)="deleteScene(scene)"
         ></fa-icon>
-      </mat-card-subtitle>
+      </div>
     </mat-card>
   </ng-container>
 </div>

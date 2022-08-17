@@ -2,7 +2,6 @@
 
 .delete {
   color: $delete-color;
-  font-size: 50px !important;
 }
 
 .act-panel {
@@ -18,6 +17,15 @@
   }
 }
 
+.badge {
+  color: $light-subtext-color;
+}
+
+.scene-name {
+  font-size: 1.5em;
+  color: $light-subtext-color;
+}
+
 .scene-container {
   margin-top: 25px;
   min-height: 50px;
@@ -28,7 +36,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .scene-icons {
-    align-self: center;
+}
+
+::ng-deep .scene-icons {
+  align-items: center;
+  .svg-inline--fa {
+    font-size: 23px;
   }
 }
