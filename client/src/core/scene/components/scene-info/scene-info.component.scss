@@ -1,78 +1,82 @@
-@import '/src/assets/styles/colors.scss';
+@import "/src/assets/styles/colors.scss";
 
-* {
+.larger {
+  font-size: 3em;
+  text-align: center;
+  margin: 15px;
+}
+
+.actions-panel {
+  display: flex;
+  justify-content: center;
+  button {
+    margin: 5px;
+    background-color: $dark-accent-color;
+    line-height: 27px !important;
+    border: 1px;
+    border-radius: 5%;
     color: $light-text-color;
-}
-
-table {
-    width: 40%;
+    padding: 0px 15px;
+    text-transform: uppercase;
+    font-size: smaller;
     fa-icon {
-        color: $delete-color;
+      align-self: center;
+      margin-right: 10px;
     }
-}
-
-.table-header {
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: $light-accent-color;
-    font-weight: 800;
-}
-
-.actor-icon {
-    font-size: medium;
-    text-transform: uppercase;
-}
-
-.table-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.mat-column-name {
-    width: 47.5%;
-}
-.mat-column-character {
-    width: 47.5%;
-}
-.mat-column-delete {
-    width: 5%;
-    text-align: center;
-}
-
-.title-container {
-    h2, p {
-        text-align: center;
-    }
+  }
 }
 
 .drag-bulk-add-container {
-    display: flex;
-    justify-content: center;
-    button {
-        margin-left: 20px;
-        font-weight: 100!important;
-        align-self: center;
-        width: 100px;
-        height: 35px;
-        -line-height: 0px!important;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  .drag-container {
+    width: 200px;
+    height: 80px;
+    background-color: $dark-background-color;
+    border: solid 1px black;
+    text-align: center;
+    .drag-text {
+      font-size: 15px;
+      align-self: center;
+      font-family: Futura;
+      background-color: $light-background-color;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: rgba(245, 245, 245, 0) 1px 1px 1px;
     }
-    .drag-container{
-        width: 200px;
-        height: 80px;
-        background-color: $dark-background-color;
-        border: solid 1px black;
-        text-align: center;
-        .drag-text {
-            font-size: 15px;
-            align-self: center;
-            font-family: Futura;
-            background-color: $light-background-color;
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: rgba(245,245,245,0.0) 1px 1px 1px;
-        }
-    }
+  }
+}
+
+table {
+  width: 40%;
+  fa-icon {
+    color: $delete-color;
+  }
+}
+
+.table-header {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $light-accent-color;
+  font-weight: 800;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mat-column-name {
+  width: 47.5%;
+}
+.mat-column-character {
+  width: 47.5%;
+}
+.mat-column-delete {
+  width: 5%;
+  text-align: center;
 }
