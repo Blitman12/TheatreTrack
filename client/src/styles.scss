@@ -1,36 +1,28 @@
-@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
-@import '/src/assets/styles/theme.scss';
-@import '/src/assets/styles/colors.scss';
-@import '/src/assets/styles/variables.scss';
-
-
-@font-face {
-    font-family: "Ballad";
-    src: url(assets/fonts/General.otf) format("opentype");
-  }
-  
-* {
-    font-family: sans-serif;
-    font-size: 15px;
-  }
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "/src/assets/styles/theme.scss";
+@import "/src/assets/styles/colors.scss";
+@import "/src/assets/styles/variables.scss";
 
 @font-face {
-    font-family: "Riemann Theatre";
-    src: url(assets/fonts/Header.otf) format("opentype");
+  font-family: "Ballad";
+  src: url(assets/fonts/General.otf) format("opentype");
 }
 
-.page-title {
-  font-size: x-large;
-  color: $light-text-color;
-  text-align: center;
-  letter-spacing: 3px;
+@font-face {
+  font-family: "Riemann Theatre";
+  src: url(assets/fonts/Header.otf) format("opentype");
+}
+
+* {
+  font-family: sans-serif;
+  font-size: 15px;
 }
 
 body {
-    margin: 0;
-    background-color: $darkest-background-color;
-    min-height: 100vh;
-    color: $light-text-color;
+  margin: 0;
+  background-color: $darkest-background-color;
+  min-height: 100vh;
+  color: $light-text-color;
 }
 
 app-root {
@@ -38,8 +30,15 @@ app-root {
   height: 100%;
   position: absolute;
   .header {
-      font-family: "Riemann Theatre";
+    font-family: "Riemann Theatre";
   }
+}
+
+.page-title {
+  font-size: x-large;
+  color: $light-text-color;
+  text-align: center;
+  letter-spacing: 3px;
 }
 
 .mat-button {
