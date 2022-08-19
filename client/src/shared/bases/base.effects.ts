@@ -30,7 +30,7 @@ export abstract class BaseEffects {
         case actActions.addActSuccess.type:
         case actActions.editActSuccess.type:
         case actActions.deleteActSuccess.type:
-          this._snackBar.open('Success', 'Action', { duration: 2000 });
+          this._snackBar.open('Success', '', { duration: 3000 });
           break;
       }
       return action;

@@ -2,10 +2,10 @@ import { catchError, switchMap, map, tap } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ProjectService } from '../../project.service';
 import { sceneActions } from '..';
-import { MatDialog } from '@angular/material/dialog';
 import { ErrorModalComponent } from 'src/shared/error-modal/error-modal.component';
 import { BaseEffects } from 'src/shared/bases';
 

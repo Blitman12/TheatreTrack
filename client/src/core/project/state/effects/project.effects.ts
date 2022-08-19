@@ -1,4 +1,4 @@
-import { catchError, of, switchMap, map, tap } from 'rxjs';
+import { catchError, switchMap, map, tap } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -9,7 +9,6 @@ import { BaseEffects } from 'src/shared/bases';
 import { actActions, projectActions, sceneActions } from '..';
 import { ProjectService } from '../../project.service';
 import { ErrorModalComponent } from 'src/shared/error-modal/error-modal.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class ProjectEffects extends BaseEffects {

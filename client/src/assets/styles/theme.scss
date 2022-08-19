@@ -80,3 +80,20 @@
   font-weight: 700;
   letter-spacing: 3px;
 }
+
+// mat snackbar
+.mat-snack-bar-container {
+  background-color: $dark-background-color;
+  color: $light-text-color;
+  min-width: 100px !important;
+  margin: 0 auto !important;
+  text-align: center;
+}
+
+.mat-simple-snackbar {
+  justify-content: center !important;
+}
+
+.cdk-overlay-pane {
+  margin-bottom: 25px !important;
+}
