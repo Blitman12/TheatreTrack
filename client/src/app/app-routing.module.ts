@@ -5,13 +5,13 @@ import { ProjectLandingComponent } from 'src/core/project/components/project-lan
 import { SceneInfoComponent } from 'src/core/scene/components/scene-info/scene-info.component';
 
 const routes: Routes = [
-  {path: '', component: ProjectLandingComponent},
-  {path: 'act/:id', component: ActLandingComponent},
-  {path: 'project/:id/act/:id/scene/:id', component: SceneInfoComponent}
+  { path: '', component: ProjectLandingComponent },
+  { path: 'act/:id', component: ActLandingComponent },
+  { path: 'project/:id/act/:id/scene/:id', component: SceneInfoComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

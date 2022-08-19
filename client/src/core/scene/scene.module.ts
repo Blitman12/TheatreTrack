@@ -4,16 +4,8 @@ import { SharedModule } from 'src/shared/shared.module';
 import { SceneInfoComponent } from './components/scene-info/scene-info.component';
 import { SceneComponent } from './components/scene/scene.component';
 
-
-
 @NgModule({
-  declarations: [
-    SceneInfoComponent,
-    SceneComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule
-  ]
+  declarations: [SceneInfoComponent, SceneComponent],
+  imports: [CommonModule, SharedModule],
 })
-export class SceneModule { }
+export class SceneModule {}

@@ -8,6 +8,13 @@
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
+  "prettier": {
+    "singleQuote": true,
+    "semi": true,
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "endOfLine": "lf"
+  },
   "dependencies": {
     "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",

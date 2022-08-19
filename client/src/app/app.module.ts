@@ -15,12 +15,8 @@ import { ActorModule } from 'src/core/actor/actor.module';
 import { ActModule } from 'src/core/act/act.module';
 import { SceneModule } from 'src/core/scene/scene.module';
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     SharedModule,
@@ -38,18 +34,19 @@ import { SceneModule } from 'src/core/scene/scene.module';
       logOnly: environment.production,
     }),
   ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: (store: Store) => {
-      console.log('Running App Init')
-      store.dispatch(projectActions.requestLoadProjects())
-      store.dispatch(actorActions.requestLoadActors())
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (store: Store) => {
+        console.log('Running App Init');
+        store.dispatch(projectActions.requestLoadProjects());
+        store.dispatch(actorActions.requestLoadActors());
+      },
+      deps: [Store],
     },
-    deps: [Store],
-  }],
-  bootstrap: [AppComponent]
+  ],
+  bootstrap: [AppComponent],
 })
-
 export class AppModule {}
 
 function actionBlockList(): string[] {

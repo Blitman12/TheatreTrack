@@ -6,19 +6,16 @@
           <input
             matInput
             placeholder="Search an actor"
-            formControlName="searchActors"
-          />
+            formControlName="searchActors" />
           <div>
             <fa-icon
               [icon]="['fas', 'plus']"
               class="add"
-              (click)="edit()"
-            ></fa-icon>
+              (click)="edit()"></fa-icon>
             <fa-icon
               [icon]="['fas', 'xmark']"
               class="delete"
-              (click)="clearText()"
-            ></fa-icon>
+              (click)="clearText()"></fa-icon>
           </div>
         </div>
       </mat-form-field>
@@ -27,8 +24,7 @@
       cdkDropList
       id="actorList"
       cdkDropListConnectedTo="sceneActorList"
-      *ngIf="displayedActors.length > 0; else noactorsTemp"
-    >
+      *ngIf="displayedActors.length > 0; else noactorsTemp">
       <ng-container *ngFor="let actor of displayedActors">
         <div class="actor">
           <div
@@ -36,8 +32,7 @@
             [cdkDragData]="actor"
             title="Name: {{ actor.firstName }} {{ actor.lastName }}&#010;Age: {{
               actor.age
-            }}&#010;Current Role: {{ actor.currentCharacter }}"
-          >
+            }}&#010;Current Role: {{ actor.currentCharacter }}">
             <table *cdkDragPreview class="preview-item">
               <tr>
                 <td>{{ actor.firstName }} {{ actor.lastName }}</td>
@@ -50,13 +45,11 @@
             <fa-icon
               [icon]="['fas', 'user-pen']"
               class="edit"
-              (click)="edit(actor)"
-            ></fa-icon>
+              (click)="edit(actor)"></fa-icon>
             <fa-icon
               [icon]="['fas', 'xmark']"
               class="delete"
-              (click)="delete(actor)"
-            ></fa-icon>
+              (click)="delete(actor)"></fa-icon>
           </div>
         </div>
         <mat-divider></mat-divider>

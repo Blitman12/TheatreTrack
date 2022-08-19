@@ -5,14 +5,8 @@ import { ActorSideBarComponent } from './components/actor-side-bar/actor-side-ba
 import { ActorComponent } from './components/actor/actor.component';
 
 @NgModule({
-  declarations: [
-    ActorSideBarComponent,
-    ActorComponent
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-  ],
-  exports: [ActorSideBarComponent]
+  declarations: [ActorSideBarComponent, ActorComponent],
+  imports: [CommonModule, SharedModule],
+  exports: [ActorSideBarComponent],
 })
-export class ActorModule { }
+export class ActorModule {}

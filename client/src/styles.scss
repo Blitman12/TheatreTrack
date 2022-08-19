@@ -1,16 +1,16 @@
-@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import "/src/assets/styles/theme.scss";
-@import "/src/assets/styles/colors.scss";
-@import "/src/assets/styles/variables.scss";
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '/src/assets/styles/theme.scss';
+@import '/src/assets/styles/colors.scss';
+@import '/src/assets/styles/variables.scss';
 
 @font-face {
-  font-family: "Ballad";
-  src: url(assets/fonts/General.otf) format("opentype");
+  font-family: 'Ballad';
+  src: url(assets/fonts/General.otf) format('opentype');
 }
 
 @font-face {
-  font-family: "Riemann Theatre";
-  src: url(assets/fonts/Header.otf) format("opentype");
+  font-family: 'Riemann Theatre';
+  src: url(assets/fonts/Header.otf) format('opentype');
 }
 
 * {
@@ -30,7 +30,7 @@ app-root {
   height: 100%;
   position: absolute;
   .header {
-    font-family: "Riemann Theatre";
+    font-family: 'Riemann Theatre';
   }
 }
 

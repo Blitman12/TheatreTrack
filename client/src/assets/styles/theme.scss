@@ -2,30 +2,30 @@
 
 /* modal styles start */
 .mat-dialog-container {
-    background-color: $dark-background-color;
-    padding: 0 !important;
+  background-color: $dark-background-color;
+  padding: 0 !important;
 }
 .mat-dialog-title {
-    display: flex !important;
-    align-items: center;
-    margin: 0 0 40px 0 !important;
-    padding-left: 20px;
-    background-color: $dark-accent-color;
-    height: 70px;
+  display: flex !important;
+  align-items: center;
+  margin: 0 0 40px 0 !important;
+  padding-left: 20px;
+  background-color: $dark-accent-color;
+  height: 70px;
 }
 .mat-dialog-content {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 .mat-dialog-actions {
-    padding: 0 !important;
-    margin: 40px 0 20px 0 !important;
-    justify-content: space-evenly;
+  padding: 0 !important;
+  margin: 40px 0 20px 0 !important;
+  justify-content: space-evenly;
 }
 .cdk-overlay-dark-backdrop {
-    background: rgb(0 0 0 / 65%);
+  background: rgb(0 0 0 / 65%);
 }
 .cdk-overlay-pane {
-    width: 50vw !important;
+  width: 50vw !important;
 }
 /* modal styles end */
 /* selected option color */
@@ -34,49 +34,49 @@
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow,
 /* label color */
 .mat-focused .mat-form-field-label {
-    color: $light-accent-color  !important;
+  color: $light-accent-color !important;
 }
 /* underline color */
 .mat-form-field-underline {
-    background-color: $light-text-color  !important;
+  background-color: $light-text-color !important;
 }
 /* focused underline color */
 .mat-form-field-ripple {
-    background-color: $light-accent-color  !important;
+  background-color: $light-accent-color !important;
 }
 /* input caret color */
 .mat-input-element {
-    caret-color: $light-accent-color  !important;
+  caret-color: $light-accent-color !important;
 }
 /* scrollbar style start */
 ::-webkit-scrollbar {
-    width: 13px;
+  width: 13px;
 }
 ::-webkit-scrollbar-track {
-    background: $dark-background-color;
-    border-left: 1px solid black;
+  background: $dark-background-color;
+  border-left: 1px solid black;
 }
 ::-webkit-scrollbar-thumb {
-    background: $dark-background-color;
+  background: $dark-background-color;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: $shadow-color;
+  background: $shadow-color;
 }
 /* scrollbar style end */
 
 // Mat-Tab-Bar
 .mat-tab-group.mat-primary .mat-ink-bar {
-    background-color: $light-accent-color!important;
+  background-color: $light-accent-color !important;
 }
 
 // Mat-Badge-Icon
 .mat-badge-accent .mat-badge-content {
-    background: $dark-accent-color;
-    color: $light-text-color;
+  background: $dark-accent-color;
+  color: $light-text-color;
 }
 
 .mat-tab-label .mat-tab-label-content {
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
 }

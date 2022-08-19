@@ -3,16 +3,14 @@
     mat-icon-button
     aria-label="right arrow icon"
     (click)="toggleActorBar()"
-    x
-  >
+    x>
     <fa-icon [icon]="['fas', 'bars']" class="edit"></fa-icon>
   </button>
   <span class="app-title"
     ><img
       src="../assets/images/TheaterOff.png"
       [@fade]="logoState"
-      class="logo-top"
-    />
+      class="logo-top" />
     <img src="../assets/images/TheaterOn.png" class="logo-bottom" />
     <span>heater Track</span></span
   >
@@ -23,8 +21,7 @@
       fontIcon="home"
       routerLink="/"
       *ngIf="url !== '/'"
-      class="home"
-    ></mat-icon>
+      class="home"></mat-icon>
   </button>
   <button mat-icon-button aria-label="add icon" (click)="editPlay()">
     <mat-icon aria-hidden="false" routerLink="/" class="add">add</mat-icon>

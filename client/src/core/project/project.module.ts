@@ -24,10 +24,15 @@ import { ProjectEffects } from './state/effects/project.effects';
     CommonModule,
     DragDropModule,
     StoreModule.forFeature(fromProjects.featureName, fromProjects.reducer),
-    EffectsModule.forFeature([ProjectEffects, ActEffects, ActorEffects, SceneEffects]),
+    EffectsModule.forFeature([
+      ProjectEffects,
+      ActEffects,
+      ActorEffects,
+      SceneEffects,
+    ]),
     SharedModule,
   ],
   providers: [ProjectService],
-  exports: []
+  exports: [],
 })
-export class ProjectModule { }
+export class ProjectModule {}
